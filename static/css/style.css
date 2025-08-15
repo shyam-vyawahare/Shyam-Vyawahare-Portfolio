@@ -1,1 +1,1489 @@
+:root {
+  --primary-color: #3498db;
+  --dark-color: #2c3e50;
+  --light-color: #f4f4f4;
+  --accent-color: #e74c3c;
+  --text-color: #333;
+  --text-light: #fff;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --section-padding: 6rem 0;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #f9f9f9;
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.content {
+  color : black;
+  text-decoration: none;
+}
+.dark-mode .content {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.15);
+}
+
+/* ======================
+   Enhanced Hero Section
+   ====================== */
+/* ===== Hero Section ===== */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f7eaff 0%, #cccfff 50%, #ffffff 100%);
+  background-size: 200% 200%;
+  animation: gradientBG 12s ease infinite;
+}
+  
+  /* Light Mode Defaults */
+  color: #000; /* Black text for light mode */
+  
+  /* Light Mode Gradient */
+  background: linear-gradient(135deg, 
+  #f7eaff 0%,     /* Warmer lavender */
+  #cccfff 50%,    /* Muted periwinkle */
+  #ffffff 100%);  /* Crisp white */
+
+  
+  /* Animated gradient background */
+  background-size: 200% 200%;
+  animation: gradientBG 12s ease infinite;
+}
+
+/* Add to your CSS */
+.hero h1 {
+  font-display: swap;
+  will-change: transform;
+  animation: none !important; /* Disable animation first */
+  opacity: 1 !important;
+}
+
+/* Re-enable animation after fonts load */
+.fonts-loaded .hero h1 {
+  animation: fadeInDown 1s ease !important;
+}
+
+/* To Create inline emoji/logo of img */
+.emoji-size {
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+  display: inline-block; 
+  border-radius: 50%;
+}
+
+/* Name Styling */
+h1 {
+    position: relative; /* Needed for absolute positioning of decor */
+    display: inline-block; /* Ensures proper spacing */
+}
+
+.name-part {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+.name-decor {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 40px;
+  width: auto;
+  z-index: 100; /* force above title */
+  pointer-events: none; /* ensure it doesn't block clicks */
+}
+
+/* Force font loading priority */
+/* Force immediate font rendering */
+@font-face {
+  font-family: 'Poppins-fallback';
+  size-adjust: 105%;
+  ascent-override: 90%;
+  src: local('Arial');
+}
+
+.hero h1 {
+  font-family: 'Poppins', 'Poppins-fallback', sans-serif;
+  /* Remove animations temporarily for testing */
+  animation: none !important;
+  opacity: 1 !important;
+}
+
+.hero .tagline {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease 0.3s both;
+  font-weight: 400;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: inherit; /* Inherits from .hero */
+}
+
+/* Decorative Elements */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, 
+    rgba(0,0,0,0.05) 0%, 
+    transparent 70%);
+  animation: pulse 8s infinite alternate;
+}
+
+/* Floating Particles - Light Mode */
+.hero-particle {
+  position: absolute;
+  background: rgba(0,0,0,0.1);
+  border-radius: 50%;
+  animation: float 15s infinite linear;
+}
+
+/* ======================
+   Dark Mode Overrides
+   ====================== */
+.dark-mode .hero {
+  color: #fff; /* White text for dark mode */
+  background: linear-gradient(135deg, 
+  #0d0d0d 0%,       /* Obsidian black */
+  #1b1446 40%,      /* Dark indigo */
+  #3a0b4f 100%);    /* Deep violet magenta */
+}
+
+.dark-mode .hero::before {
+  background: radial-gradient(circle, 
+    rgba(255,255,255,0.05) 0%, 
+    transparent 70%);
+}
+
+.dark-mode .hero-particle {
+  background: rgba(255,255,255,0.15);
+}
+
+/* ======================
+   Animations (unchanged)
+   ====================== */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.2); opacity: 0.1; }
+}
+
+@keyframes float {
+  0% { 
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { 
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Animations */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.2); opacity: 0.1; }
+}
+
+@keyframes float {
+  0% { 
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { 
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  color: black;
+}
+
+.dark-mode .scroll-indicator {
+  color: whitesmoke;
+}
+
+/* ======================
+   Content Sections
+   ====================== */
+.section {
+  padding: var(--section-padding);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section.slide-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animations */
+.section:nth-child(2) { transition-delay: 0.1s; }
+.section:nth-child(3) { transition-delay: 0.2s; }
+.section:nth-child(4) { transition-delay: 0.3s; }
+
+.section:nth-child(even) {
+  background-color: var(--light-color);
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--dark-color);
+}
+
+/* ======================
+   About Section Styling
+   ====================== */
+#about {
+  background: linear-gradient(135deg, #f0f4f8 0%, #dce3ea 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#about::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: var(--primary-color);
+  opacity: 0.1;
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+#about::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: var(--accent-color);
+  opacity: 0.1;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+#about .container {
+  position: relative;
+  z-index: 2;
+}
+
+#about h2 {
+  font-size: 2.8rem;
+  color: var(--dark-color);
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+#about h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+#about h3 {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: var(--text-color);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-left: 30px;
+}
+
+#about h3::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+}
+
+#about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #495057;
+  margin-bottom: 1.8rem;
+  position: relative;
+  padding-left: 30px;
+}
+
+#about p::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 15px;
+  height: 2px;
+  background: var(--accent-color);
+  opacity: 0.7;
+}
+
+/* Animation for paragraphs */
+#about p {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+#about p.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered animation delays */
+#about p:nth-child(1) { transition-delay: 0.1s; }
+#about p:nth-child(2) { transition-delay: 0.3s; }
+#about p:nth-child(3) { transition-delay: 0.5s; }
+
+/* Dark Mode Adjustments */
+.dark-mode #about {
+  background: linear-gradient(135deg, #1c1f2b 0%, #2a2e46 50%, #40486b 100%);
+}
+
+.dark-mode #about h2 {
+  color: var(--text-light);
+}
+
+.dark-mode #about h3,
+.dark-mode #about p {
+  color: #e9ecef;
+}
+
+.dark-mode #about h2::after {
+  background: var(--accent-color);
+}
+
+/* ======================
+   Projects Section (Specific Styling)
+   ====================== */
+#projects {
+  background: linear-gradient(135deg, #e9f5ff 0%, #d0e7ff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#projects::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: #4dabf7; /* Brighter blue accent */
+  opacity: 0.1;
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+#projects::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: #339af0; /* Primary blue */
+  opacity: 0.1;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+#projects .container {
+  position: relative;
+  z-index: 2;
+}
+
+#projects h2 {
+  font-size: 2.8rem;
+  color: #1c7ed6; /* Deep blue */
+  margin-bottom: 2.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+#projects h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #4dabf7; /* Matching the blob color */
+  border-radius: 2px;
+}
+
+#projects h3 {
+  font-size: 1.6rem;
+  color: #228be6; /* Slightly darker than title */
+  margin: 2rem 0 1rem;
+  position: relative;
+  padding-left: 30px;
+}
+
+#projects h3::before {
+  content: "◈"; /* Diamond symbol */
+  position: absolute;
+  left: 0;
+  color: #4dabf7;
+  font-size: 1.2rem;
+}
+
+/* Project card styling */
+#projects .project-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(33, 150, 243, 0.1);
+  border-left: 4px solid #4dabf7;
+  transition: all 0.3s ease;
+}
+
+#projects .project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.15);
+}
+
+/* Make project card clickable while keeping styling */
+.project-card {
+  display: block; /* Change from default inline */
+  text-decoration: none;
+  color: inherit; /* Keeps text color from changing */
+}
+
+/* Remove any link-specific styles */
+.project-card:hover,
+.project-card:visited,
+.project-card:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Ensure hover effects still work */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.15);
+}
+
+/* Dark Mode Adjustments */
+.dark-mode #projects {
+  background: linear-gradient(135deg, #1a2a3a 0%, #0d1b2a 100%);
+}
+
+.dark-mode #projects h2 {
+  color: #74c0fc;
+}
+
+.dark-mode #projects h2::after {
+  background: #339af0;
+}
+
+.dark-mode #projects h3 {
+  color: #a5d8ff;
+}
+
+.dark-mode #projects h3::before {
+  color: #339af0;
+}
+
+.dark-mode #projects .project-card {
+  background: #212f45;
+  box-shadow: 0 5px 15px rgba(2, 48, 89, 0.3);
+  border-left-color: #339af0;
+}
+
+/* ======================
+   Contact Section Styling
+   ====================== */
+#contact {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#contact::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: var(--primary-color);
+  opacity: 0.1;
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+#contact::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: var(--accent-color);
+  opacity: 0.1;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+#contact .container {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px; 
+}
+
+#contact h2 {
+  font-size: 2.8rem;
+  color: var(--dark-color);
+  margin-bottom: 3rem;
+  /* text-align: center; */
+  position: relative;
+}
+
+#contact h2::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  transform: none;
+  width: 80px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+/* Contact Form Styling */
+.contact-form {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.contact-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--dark-color);
+}
+
+.form-control {
+  width: calc(100% - 2px);
+  max-width: 100%;
+  padding: 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+textarea.form-control {
+  min-height: 150px;
+  resize: vertical;
+  width: calc(100% - 2px);
+}
+
+.submit-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.submit-btn:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(41, 128, 185, 0.3);
+}
+
+.contact-info {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  width: calc(100% - 40px);
+  max-width: 100%; 
+  box-sizing: border-box;
+  margin-left: -20px;
+  text-decoration: none;
+  color:black;
+}
+
+.contact-item span {
+  white-space: nowrap;
+}
+
+.contact-item:hover {
+  background: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* Dark Mode Adjustments */
+.dark-mode #contact {
+  background: linear-gradient(135deg, #212529 0%, #343a40 100%);
+  color: #f8f9fa; /* Sets default text color to white */
+}
+
+.dark-mode #contact h2 {
+  color: #ffffff;
+}
+
+.dark-mode #contact h2::after {
+  background: var(--accent-color);
+}
+
+.dark-mode .contact-form {
+  background: #2b3035;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  color: #f8f9fa;
+}
+
+.dark-mode .contact-form:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .form-group label {
+  color: #e9ecef;
+}
+
+.dark-mode .form-control {
+  background: #343a40;
+  border-color: #495057;
+  color: #f8f9fa;
+}
+
+.dark-mode .form-control::placeholder {
+  color: #adb5bd;
+}
+
+.dark-mode .contact-item {
+  background: rgba(33, 37, 41, 0.7);
+  color: #f8f9fa;
+}
+
+.dark-mode .contact-item:hover {
+  background: #343a40;
+}
+
+.dark-mode .contact-icon {
+  color: var(--accent-color);
+}
+
+.dark-mode .submit-btn {
+  background: var(--accent-color);
+}
+
+.dark-mode .submit-btn:hover {
+  background: #e63946; /* Slightly brighter red for hover */
+}
+
+
+/* ======================
+   Footer
+   ====================== */
+footer {
+  background: var(--dark-color);
+  color: var(--text-light);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* ======================
+   Dark Mode
+   ====================== */
+.dark-mode {
+  --dark-color: #121212;
+  --light-color: #1e1e1e;
+  --text-color: #f0f0f0;
+  background-color: #121212;
+}
+
+.dark-mode .section:nth-child(even) {
+  background-color: #2a2a2a;
+}
+
+.dark-mode .section h2 {
+  color: var(--text-light);
+}
+
+/* Sun moon toggle symbol */
+.mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  z-index: 100;
+  background: rgba(0,0,0,0.5);
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.mode-toggle:active {
+  transform: rotate(180deg) scale(1.2);
+  opacity: 0.7;
+}
+
+.mode-toggle:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+/* ======================
+   Enhanced Animations
+   ====================== */
+.animate {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  filter: blur(2px);
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.animated {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotateX(var(--rotate-x, 0)) rotateY(var(--rotate-y, 0));
+  filter: blur(0);
+  animation: float 3s ease-in-out infinite;
+}
+
+.focus-animation {
+  animation: pulse 1.5s ease infinite, 
+             float 3s ease-in-out infinite;
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) rotateX(30deg);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) perspective(500px) rotateX(-20deg);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) perspective(500px) rotateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) translateX(-50%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  40% {
+    transform: translateY(-30px) translateX(-50%);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+  60% {
+    transform: translateY(-15px) translateX(-50%);
+  }
+}
+
+/* New 3D Flip Animation */
+.section:nth-child(odd) .animated {
+  --rotate-x: 1deg;
+  --rotate-y: -1deg;
+}
+.section:nth-child(even) .animated {
+  --rotate-x: -1deg;
+  --rotate-y: 1deg;
+}
+
+/* Dynamic Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1) rotateX(var(--rotate-x, 0)) rotateY(var(--rotate-y, 0));
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02) rotateX(calc(var(--rotate-x, 0) * 1.5)) rotateY(calc(var(--rotate-y, 0) * 1.5));
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(52, 152, 219, 0);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(52, 152, 219, 0);
+  }
+}
+
+/* Parallax Background Elements */
+.bg-element {
+  transition: transform 0.5s ease-out;
+}
+
+/* Interactive Elements */
+.interactive-element {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes flipIn {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(90deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0) scale(1);
+  }
+}
+
+/* New Glow Effect */
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 5px rgba(255,255,255,0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(52, 152, 219, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255,255,255,0.3);
+  }
+}
+
+/* New Pulse Effect */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Apply to specific elements */
+.hero h1 {
+  animation: fadeInDown 1s ease-out, textGlow 3s ease-in-out infinite;
+}
+
+.project-card {
+  transition: all 0.5s ease, transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.project-card:hover {
+  animation: pulse 1.5s ease infinite;
+}
+
+.special-element {
+  animation: flipIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* ======================
+   Project Cards
+   ====================== */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  background: white;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  margin-bottom: 2rem;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.1),
+    transparent 40%
+  );
+  z-index: 3;
+}
+
+/* ======================
+   Buttons
+   ====================== */
+.btn {
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--text-light);
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.btn:hover {
+  background: #2980b9;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+}
+
+
+/* ======================
+   Project Page Styles
+   ====================== */
+.project-hero {
+  height: 70vh;
+  background: linear-gradient(135deg, #f0f7ff 0%, #d0e3ff 100%);
+  text-align: center;
+}
+
+.dark-mode .project-hero {
+  background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+}
+
+.project-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-hero .tagline {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.project-meta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+.dark-mode .project-meta {
+  color: var(--text-light);
+}
+
+.project-date, .project-tags {
+  display: flex;
+  align-items: center;
+}
+
+.project-date::before {
+  content: "📅";
+  margin-right: 8px;
+}
+
+.project-tags::before {
+  content: "🏷️";
+  margin-right: 8px;
+}
+
+.github-btn {
+  background: #24292e;
+  color: white;
+  padding: 0.8rem 2.5rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10;
+}
+
+.github-btn:hover {
+  background: #2d3338;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(36, 41, 46, 0.3);
+}
+
+.dark-mode .github-btn {
+    background: #2d3338;
+}
+
+.project-details {
+  padding-top: 4rem;
+}
+
+.project-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.project-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.project-content h3 {
+  font-size: 1.8rem;
+  margin: 3rem 0 1.5rem;
+  color: var(--dark-color);
+}
+
+.dark-mode .project-content h3 {
+  color: var(--text-light);
+}
+
+.project-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.project-features ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.project-features li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.project-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.tech-stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.tech-item {
+  background: rgba(52, 152, 219, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.dark-mode .tech-item {
+  background: rgba(52, 152, 219, 0.05);
+}
+
+.tech-item h4 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.tech-item p {
+  margin-bottom: 0;
+  color: var(--text-color);
+}
+
+.dark-mode .tech-item p {
+  color: #e9ecef;
+}
+
+.challenge {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(231, 76, 60, 0.05);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 8px;
+}
+
+.dark-mode .challenge {
+  background: rgba(231, 76, 60, 0.03);
+}
+
+.challenge h4 {
+  color: var(--accent-color);
+  margin-top: 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.gallery-item img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.02);
+}
+
+.gallery-item p {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.dark-mode .gallery-item p {
+  color: #aaa;
+}
+
+.project-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 4rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.secondary-btn:hover {
+  background: rgba(52, 152, 219, 0.1);
+}
+
+.dark-mode .secondary-btn {
+  color: #74c0fc;
+  border-color: #74c0fc;
+}
+
+.dark-mode .secondary-btn:hover {
+  background: rgba(116, 192, 252, 0.1);
+}
+
+.ftimg{
+  display: inline-block;
+  justify-content: center;
+  width: 120px;
+  height: 50px;
+}
+
+
+/* ======================
+   Mobile Responsiveness
+   ====================== */
+@media (max-width: 768px) {
+  /* Typography */
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  
+  .hero .tagline {
+    font-size: 1.5rem;
+  }
+  
+  .section h2 {
+    font-size: 2rem;
+  }
+  
+  /* Layout */
+  .section {
+    padding: 4rem 0;
+  }
+  
+  /* Mode Toggle */
+  .mode-toggle {
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+  }
+  
+   h1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .name-part {
+        padding-top: 30px; /* Smaller space on mobile */
+    }
+    .name-decor {
+        height: 30px; /* Smaller image on mobile */
+    }      
+  
+  /* About Section */
+  #about h2 {
+    font-size: 2.2rem;
+  }
+  
+  #about h3 {
+    font-size: 1.2rem;
+    padding-left: 20px;
+  }
+  
+  #about p {
+    font-size: 1rem;
+    padding-left: 20px;
+  }
+  
+  #about h3::before,
+  #about p::before {
+    left: -5px;
+  }
+  
+  /* Project Section */
+    #projects h2 {
+    font-size: 2.2rem;
+  }
+  
+  #projects h3 {
+    font-size: 1.3rem;
+    padding-left: 25px;
+  }
+  
+  #projects h3::before {
+    font-size: 1rem;
+    left: -2px;
+  }
+  
+  #projects .project-card {
+    padding: 1.2rem;
+  }
+  
+  /* Contact Section */
+  #contact h2 {
+    font-size: 2.2rem;
+  }
+  
+  .contact-form {
+    padding: 1.5rem;
+  }
+  
+  .contact-info {
+    padding: 0 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .contact-item {
+    max-width: 500px;
+    padding: 0.7rem 1.2rem;
+    width: 100%;
+  }
+  
+  .contact-item span {
+    white-space: normal;
+    word-break: break-all; /* Ensures long text breaks properly */
+  }
+  
+  /* -----
+  Project Page mobile view 
+  ---- */
+  .project-content, 
+  .project-features ul,
+  .tech-stack,
+  .challenge,
+  .gallery-item {
+      width: 100% !important;
+      box-sizing: border-box; /* Includes padding in width calculation */
+      padding-right: 15px !important;
+      padding-left: 15px !important;
+      margin-right: 0 !important;
+    }
+
+  /* Fix text/content overflow */
+  p, li, h3, h4, .tech-item p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    }
+
+  /* Tech stack grid adjustment */
+  .tech-stack {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+
+  /* Gallery items */
+  .gallery-item {
+    padding: 0 5px;
+  }
+
+  /* Challenge boxes */
+  .challenge {
+    margin-right: 0;
+    padding: 1rem;
+  }
+  
+  /* Base containment (add to your existing styles) */
+  .project-content > * {
+     max-width: 100%;
+     overflow: hidden;
+  }
+
+  img, video, iframe {
+     max-width: 100%;
+     height: auto;
+  }
+}
+
+
+
+/* Desktop Specific Styles */
+@media (min-width: 769px) {
+  /* Add any desktop-specific styles here */
+  .hero h1 {
+    font-size: 4rem;
+  }
+  
+  .section h2 {
+    font-size: 3rem;
+  }
+}
 
