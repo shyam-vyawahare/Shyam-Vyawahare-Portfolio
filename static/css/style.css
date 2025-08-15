@@ -48,7 +48,6 @@ a {
 /* ======================
    Enhanced Hero Section
    ====================== */
-/* ===== Hero Section ===== */
 .hero {
   height: 100vh;
   display: flex;
@@ -76,7 +75,7 @@ a {
   /* Animated gradient background */
   background-size: 200% 200%;
   animation: gradientBG 12s ease infinite;
-}
+
 
 /* Add to your CSS */
 .hero h1 {
