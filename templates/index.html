@@ -10,33 +10,48 @@
 <body>
     <!-- Hero Section -->
     <section id="home" class="hero">
-      <div class="container">
-        <h1 class="hero-title">
-          <span class="name-part">
-            <img src="../static/images/shname.png" alt="Shyam Decoration" class="name-decor">
-            <span class="name-text">Shyam</span>
-          </span>
-          <span class="name-part">
-            <img src="../static/images/vyname.png" alt="Vyawahare Decoration" class="name-decor">
-            <span class="name-text">Vyawahare</span>
-          </span>
-        </h1>
-
-        <p class="tagline">
-          AI & Web Developer | Digital Artist | Content Writer & Novelist
-        </p>
-
-        <div class="scroll-indicator">↓ Scroll to Explore ↓</div>
-      </div>
+        <div class="container">
+            <h1>
+                <span class="name-part">Shyam</span>
+                <span class="name-part">Vyawahare</span>
+            </h1>
+            <p class="tagline">AI & Web Developer | Digital Artist | Content Writer & Novelist</p>
+            <div class="scroll-indicator">↓ Scroll to Explore ↓</div>
+        </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
             <h2>About Me</h2>
-            <h3>Hi, I’m Shyam Vyawahare, an aspiring AI & Web Developer with a deep curiosity for software development, machine learning, and intelligent systems. I’m currently pursuing my B.Tech in Electronics & Computer Engineering, expected to graduate in 2026.</h3>
-            <p>Alongside my technical journey, I’m also a passionate content writer and scriptwriter, with over 3 years of experience as a Hindi novelist on Pocket Novel India — where I craft imagination-driven, emotionally rich stories that connect with thousands of readers.</p>
-            <p>Whether it’s building smart web applications or creating engaging narratives, I thrive at the intersection of logic and creativity. I'm continuously exploring new tools, learning by doing, and striving to turn innovative ideas into impactful experiences — both in code and content.</p>
+            <h3>Hi, I'm Shyam Vyawahare, an aspiring AI & Web Developer with a deep curiosity for software development, machine learning, and intelligent systems. I'm currently pursuing my B.Tech in Electronics & Computer Engineering, expected to graduate in 2026.</h3>
+            <p>Alongside my technical journey, I'm also a passionate content writer and scriptwriter, with over 3 years of experience as a Hindi novelist on Pocket Novel India — where I craft imagination-driven, emotionally rich stories that connect with thousands of readers.</p>
+            <p>Whether it's building smart web applications or creating engaging narratives, I thrive at the intersection of logic and creativity. I'm continuously exploring new tools, learning by doing, and striving to turn innovative ideas into impactful experiences — both in code and content.</p>
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="section">
+        <div class="container">
+            <h2>My Curriculum Vitae</h2>
+            <p>Want to learn more about my professional background, skills, and experience? View or download my comprehensive CV.</p>
+            
+            <div class="cv-actions">
+                <a href="../static/documents/Shyam_Vyawahare_Resume_updateAug2025.pdf" target="_blank" class="btn cv-btn view-cv">
+                    <span class="btn-icon">👁️</span> View My CV
+                </a>
+                <a href="../static/documents/Shyam_Vyawahare_Resume_updateAug2025.pdf" download="Shyam_Vyawahare_Resume_updateAug2025.pdf" class="btn cv-btn download-cv">
+                    <span class="btn-icon">📥</span> Download My CV
+                </a>
+            </div>
+            
+            <div class="cv-preview">
+                <div class="cv-preview-placeholder">
+                    <div class="preview-icon">📄</div>
+                    <p>CV Preview</p>
+                    <small>Click "View My CV" to see the full document</small>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -48,14 +63,21 @@
             <a href="projects/project1.html" class="project-card">
                 <h3>1. Morphed Image Detector</h3>
                 <p>AI & ML based project, system that detect digitally manipulated or morphed facial images to verify authenticity</p>
-                <div class="tech-stack">Python, OpenCV, TensorFlow</div>
+                <div class="tech-stack">Python • OpenCV • TensorFlow</div>
                 <h5>Visit project description site</h5>
             </a>
         
             <a href="projects/project2.html" class="project-card">
                 <h3>2. Bank ATM Simulator</h3>
-                <p>Java core based project, system simulates Bank ATM with all of its functionalities</p>
-                <div class="tech-stack">Java, MySQL Workbench</div>
+                <p>Java core based project, system simulates Bank ATM with all of its functionalities from creating account, setting up pin, credit & withdraw amount, get recept, etc.</p>
+                <div class="tech-stack">Java • MySQL • Workbench</div>
+                <h5>Visit project description site</h5>
+            </a>
+            
+            <a href="projects/project3.html" class="project-card">
+                <h3>3. Restaurant Management System</h3>
+                <p>A comprehensive Django-based platform for managing restaurant operations, from menu and orders to customer relationships</p>
+                <div class="tech-stack">Django • Python • PostgreSQL • Bootstrap • REST API</div>
                 <h5>Visit project description site</h5>
             </a>
             
@@ -91,24 +113,25 @@
           </div>
           
         <h2>Leave a Message</h2>      
-        <form class="contact-form">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" class="form-control" required>
+        <form class="contact-form" id="contactForm">
+             <div class="form-group">
+                 <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control" required>
             </div>
-      
+
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" class="form-control" required>
+                <input type="email" id="email" name="email" class="form-control" required>
             </div>
-      
+
             <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" class="form-control" required></textarea>
+                <textarea id="message" name="message" class="form-control" required></textarea>
             </div>
-      
+
             <button type="submit" class="submit-btn">Send Message</button>
-          </form>
+            <div id="formMessage" style="display: none; margin-top: 15px; padding: 10px; border-radius: 5px;"></div>
+        </form>
           
       </div>
     </section>
