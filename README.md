@@ -1,3 +1,4 @@
+Shyam Vyawahare Portfolio Website
 A modern, responsive portfolio website built with HTML, CSS, and JavaScript, featuring a clean design with dark/light mode toggle and smooth animations.
 
 🚀 Live Demo
