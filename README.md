@@ -52,7 +52,7 @@ Option 1: Static Hosting (GitHub Pages)
 
 1. Fork this repository
    ```bash
-   git clone https://github.com/your-username/portfolio-website.git
+   git clone https://github.com/shyam-vyawahare/portfolio-website.git
    cd portfolio-website
    ```
 
