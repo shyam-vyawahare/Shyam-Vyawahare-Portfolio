@@ -175,7 +175,6 @@ Shyam Vyawahare - [shyamvyawahare1@gmail.com](mailto:shyamvyawahare1@gmail.com)
 
 Project Link: [https://github.com/your-username/portfolio-website](https://github.com/your-username/portfolio-website)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/4b6f7d3f-b7e7-478d-8516-a419d7896f73/deploy-status)](https://app.netlify.com/projects/shyam-vyawahare-portfoli/deploys)
 
 🙏 Acknowledgments
 
