@@ -1,126 +1,83 @@
+// Optimized JavaScript for faster hero title loading
 document.addEventListener('DOMContentLoaded', function() {
   // =============================================
-  // Typing animation for hero text
+  // IMMEDIATE HERO TITLE DISPLAY (No typing animation)
   // =============================================
   const heroTitle = document.querySelector('.hero h1');
-  if (heroTitle) {
-    const text = heroTitle.textContent;
-    heroTitle.textContent = '';
-    
-    let i = 0;
-    const typingEffect = setInterval(() => {
-      if (i < text.length) {
-        heroTitle.textContent += text.charAt(i);
-        i++;
-      } else {
-        clearInterval(typingEffect);
-      }
-    }, 100);
-  }
+  // Title is already visible in HTML, no need for JS animation
   
   // ===== FONT LOADING OPTIMIZATION =====
-  document.fonts.ready.then(() => {
-  document.documentElement.classList.add('fonts-loaded');
-  });
-
-  // Font load fallback (if takes longer than 500ms)
-  setTimeout(() => {
-    document.documentElement.classList.add('fonts-loaded');
-  }, 500);
-
-
-  // =============================================
-  // Enhanced Scroll Animations
-  // =============================================
-  const animateOnScroll = function() {
-    const elements = document.querySelectorAll('.section > .container > *');
-    const windowHeight = window.innerHeight;
-    const triggerOffset = windowHeight / 1.5;
-  
-  elements.forEach(element => {
-    const elementPosition = element.getBoundingClientRect().top;
-    const elementHeight = element.offsetHeight;
-    
-    // Calculate distance from center of viewport
-    const distanceFromCenter = Math.abs(elementPosition + elementHeight/2 - windowHeight/2);
-    
-    // When element enters viewport (with 20% threshold)
-    if (elementPosition < triggerOffset) {
-      // Remove and re-add animated class to restart animation
-      element.classList.remove('animated');
-      void element.offsetWidth; // Trigger reflow
-      element.classList.add('animated');
-      
-      // Dynamic intensity based on scroll speed and position
-      const scrollIntensity = 1 - Math.min(distanceFromCenter / windowHeight, 0.5);
-      element.style.setProperty('--animation-intensity', scrollIntensity);
-      
-      // Add bounce effect when near center
-      if (distanceFromCenter < windowHeight/4) {
-        element.classList.add('focus-animation');
-      } else {
-        element.classList.remove('focus-animation');
-      }
-    } else {
-      // Reset when scrolled out of view
-      element.classList.remove('animated', 'focus-animation');
-    }
-  });
-};
-
-// Initialize animations
-document.querySelectorAll('.section').forEach((section, index) => {
-  const container = section.querySelector('.container');
-  container.style.transitionDelay = `${index * 0.15}s`;
-  
-  // Add parallax effect to background elements
-  const bgElements = section.querySelectorAll('.bg-element');
-  bgElements.forEach(el => {
-    el.setAttribute('data-speed', (0.3 + Math.random() * 0.4).toFixed(2));
-  });
-});
-
-// Add scroll event with throttling
-let lastScroll = 0;
-let ticking = false;
-
-window.addEventListener('scroll', function() {
-  lastScroll = window.scrollY;
-  
-  if (!ticking) {
-    window.requestAnimationFrame(function() {
-      animateOnScroll();
-      ticking = false;
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      document.documentElement.classList.add('fonts-loaded');
+    }).catch(() => {
+      document.documentElement.classList.add('fonts-loaded');
     });
-    ticking = true;
+  } else {
+    // Fallback for browsers that don't support document.fonts
+    setTimeout(() => {
+      document.documentElement.classList.add('fonts-loaded');
+    }, 300);
   }
-});
 
-// Initial trigger
-animateOnScroll();
+  // =============================================
+  // Optimized Scroll Animations with Intersection Observer
+  // =============================================
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('slide-in');
+        // Stop observing after animation triggers
+        sectionObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
 
-// Add mouse move effects for interactive elements
-document.addEventListener('mousemove', (e) => {
-  const mouseX = e.clientX / window.innerWidth;
-  const mouseY = e.clientY / window.innerHeight;
-  
-  document.querySelectorAll('.interactive-element').forEach(el => {
-    const moveX = (mouseX - 0.5) * 20;
-    const moveY = (mouseY - 0.5) * 20;
-    el.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  // Observe all sections for scroll animations
+  document.querySelectorAll('.section').forEach(section => {
+    sectionObserver.observe(section);
   });
-});
 
   // =============================================
-  // Hover effect for project cards
+  // Element Animation on Scroll (for elements within sections)
   // =============================================
+  const elementObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+        
+        // Add focus animation for elements near center
+        const rect = entry.target.getBoundingClientRect();
+        const distanceFromCenter = Math.abs(rect.top + rect.height/2 - window.innerHeight/2);
+        
+        if (distanceFromCenter < window.innerHeight/4) {
+          entry.target.classList.add('focus-animation');
+        }
+      }
+    });
+  }, { threshold: 0.15 });
+
+  // Observe elements within sections
+  document.querySelectorAll('.section > .container > *').forEach(element => {
+    elementObserver.observe(element);
+  });
+
+  // =============================================
+  // Hover effect for project cards (with performance optimization)
+  // =============================================
+  let hoverTimeout;
   document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
-      const x = e.clientX - card.getBoundingClientRect().left;
-      const y = e.clientY - card.getBoundingClientRect().top;
-      
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
+      // Throttle the mousemove events
+      clearTimeout(hoverTimeout);
+      hoverTimeout = setTimeout(() => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      }, 16); // ~60fps
     });
   });
 
@@ -130,7 +87,7 @@ document.addEventListener('mousemove', (e) => {
   const modeToggle = document.createElement('div');
   modeToggle.className = 'mode-toggle';
   modeToggle.innerHTML = '🌓';
-  document.body.appendChild(modeToggle); // Changed from nav to body
+  document.body.appendChild(modeToggle);
   
   modeToggle.addEventListener('click', function() {
     document.body.classList.toggle('dark-mode');
@@ -145,75 +102,105 @@ document.addEventListener('mousemove', (e) => {
   }
 
   // =============================================
-  // Smooth scrolling for section links (if any)
+  // Smooth scrolling for section links
   // =============================================
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
       if (target) {
-        window.scrollTo({
-          top: target.offsetTop,
-          behavior: 'smooth'
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
         });
       }
     });
   });
 
   // =============================================
-  // Responsive adjustments
+  // Optimized mouse move effects (throttled)
   // =============================================
-  function handleResize() {
-    // Add any responsive JS adjustments here if needed
-  }
+  let mouseMoveTimeout;
+  document.addEventListener('mousemove', (e) => {
+    // Throttle mousemove events
+    clearTimeout(mouseMoveTimeout);
+    mouseMoveTimeout = setTimeout(() => {
+      const mouseX = e.clientX / window.innerWidth;
+      const mouseY = e.clientY / window.innerHeight;
+      
+      document.querySelectorAll('.interactive-element').forEach(el => {
+        const moveX = (mouseX - 0.5) * 20;
+        const moveY = (mouseY - 0.5) * 20;
+        el.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+    }, 16); // ~60fps
+  });
 
-  window.addEventListener('resize', handleResize);
+  // =============================================
+  // Responsive adjustments (debounced)
+  // =============================================
+  let resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      // Any responsive adjustments would go here
+    }, 250);
+  });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Set up the Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1, // Trigger when 10% of element is visible
-    };
+// Add CSS for animations (inject if not already in your CSS)
+(function() {
+  const style = document.createElement('style');
+  style.textContent = `
+    .slide-in {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    
+    /* For staggered animations */
+    .section:nth-child(2) { transition-delay: 0.1s !important; }
+    .section:nth-child(3) { transition-delay: 0.2s !important; }
+    .section:nth-child(4) { transition-delay: 0.3s !important; }
+  `;
+  document.head.appendChild(style);
+})();
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Add slide-in class when section comes into view
-                entry.target.classList.add('slide-in');
-                
-                // Optional: Stop observing after animation triggers
-                observer.unobserve(entry.target);
-            }
+// Contact form handling
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const submitBtn = this.querySelector('.submit-btn');
+    const messageDiv = document.getElementById('formMessage');
+    
+    // Disable button during submission
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    messageDiv.style.display = 'none';
+    
+    try {
+        const response = await fetch('/submit_contact', {
+            method: 'POST',
+            body: formData
         });
-    }, observerOptions);
-
-    // Observe all sections
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        // Add initial hidden state
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(50px)';
-        section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
         
-        // Start observing each section
-        observer.observe(section);
-    });
-
-    // Optional: Add this to your CSS or keep it in JS
-    const style = document.createElement('style');
-    style.textContent = `
-        .slide-in {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
+        const data = await response.json();
+        
+        messageDiv.textContent = data.message;
+        messageDiv.style.backgroundColor = data.success ? '#d4edda' : '#f8d7da';
+        messageDiv.style.color = data.success ? '#155724' : '#721c24';
+        messageDiv.style.display = 'block';
+        
+        if (data.success) {
+            this.reset();
         }
-        
-        /* For staggered animations */
-        .section:nth-child(2) { transition-delay: 0.1s !important; }
-        .section:nth-child(3) { transition-delay: 0.2s !important; }
-        .section:nth-child(4) { transition-delay: 0.3s !important; }
-    `;
-    document.head.appendChild(style);
+    } catch (error) {
+        messageDiv.textContent = 'Network error. Please try again later.';
+        messageDiv.style.backgroundColor = '#f8d7da';
+        messageDiv.style.color = '#721c24';
+        messageDiv.style.display = 'block';
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+    }
 });
-
-
