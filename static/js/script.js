@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.head.appendChild(style);
 })();
 
-// Contact form handling
+// Contact form handling with prettier feedback
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     
@@ -173,10 +173,13 @@ document.getElementById('contactForm').addEventListener('submit', async function
     const submitBtn = this.querySelector('.submit-btn');
     const messageDiv = document.getElementById('formMessage');
     
+    // Reset state
+    messageDiv.className = "";
+    messageDiv.style.display = "none";
+
     // Disable button during submission
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
-    messageDiv.style.display = 'none';
     
     try {
         const response = await fetch('/submit_contact', {
@@ -186,19 +189,18 @@ document.getElementById('contactForm').addEventListener('submit', async function
         
         const data = await response.json();
         
-        messageDiv.textContent = data.message;
-        messageDiv.style.backgroundColor = data.success ? '#d4edda' : '#f8d7da';
-        messageDiv.style.color = data.success ? '#155724' : '#721c24';
-        messageDiv.style.display = 'block';
-        
         if (data.success) {
+            messageDiv.textContent = data.message;
+            messageDiv.classList.add("show", "success");
             this.reset();
+        } else {
+            messageDiv.textContent = data.message;
+            messageDiv.classList.add("show", "error");
         }
+        
     } catch (error) {
-        messageDiv.textContent = 'Network error. Please try again later.';
-        messageDiv.style.backgroundColor = '#f8d7da';
-        messageDiv.style.color = '#721c24';
-        messageDiv.style.display = 'block';
+        messageDiv.textContent = '❌ Network error. Please try again later.';
+        messageDiv.classList.add("show", "error");
     } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send Message';

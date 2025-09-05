@@ -45,17 +45,11 @@ def submit_contact():
 
         # Validate required fields
         if not name or not email or not message:
-            return jsonify({
-                'success': False,
-                'message': 'All fields are required.'
-            }), 400
+            return jsonify({'success': False, 'message': 'All fields are required.'}), 400
 
         # Validate email format
         if '@' not in email or '.' not in email:
-            return jsonify({
-                'success': False,
-                'message': 'Please enter a valid email address.'
-            }), 400
+            return jsonify({'success': False, 'message': 'Please enter a valid email address.'}), 400
 
         # Create email message
         msg = Message(
@@ -63,7 +57,6 @@ def submit_contact():
             recipients=[os.getenv('RECIPIENT_EMAIL', app.config['MAIL_USERNAME'])],
             reply_to=email
         )
-
         msg.body = f"""
 Name: {name}
 Email: {email}
@@ -74,21 +67,13 @@ Message:
 
         # Send email
         mail.send(msg)
-
-        # Log the submission
         logger.info(f"Contact form submitted by {name} ({email})")
 
-        return jsonify({
-            'success': True,
-            'message': 'Thank you for your message! I\'ll get back to you soon.'
-        })
+        return jsonify({'success': True, 'message': 'Thank you for your message! I\'ll get back to you soon.'})
 
     except Exception as e:
         logger.error(f"Error sending contact form: {str(e)}")
-        return jsonify({
-            'success': False,
-            'message': 'Sorry, there was an error sending your message. Please try again later.'
-        }), 500
+        return jsonify({'success': False, 'message': 'Sorry, there was an error sending your message. Please try again later.'}), 500
 
 
 # Dynamic project routes
@@ -122,7 +107,6 @@ def internal_error(error):
 
 
 if __name__ == '__main__':
-    # Check if required environment variables are set
     if not app.config['MAIL_USERNAME'] or not app.config['MAIL_PASSWORD']:
         logger.warning("Email credentials not set. Contact form will not work.")
 
