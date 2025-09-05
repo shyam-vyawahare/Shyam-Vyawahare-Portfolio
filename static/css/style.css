@@ -122,8 +122,6 @@ h1 {
   pointer-events: none; /* ensure it doesn't block clicks */
 }
 
-/* Force font loading priority */
-/* Force immediate font rendering */
 @font-face {
   font-family: 'Poppins-fallback';
   size-adjust: 105%;
@@ -133,8 +131,6 @@ h1 {
 
 .hero h1 {
   font-family: 'Poppins', 'Poppins-fallback', sans-serif;
-  /* Remove animations temporarily for testing */
-  animation: none !important;
   opacity: 1 !important;
 }
 
