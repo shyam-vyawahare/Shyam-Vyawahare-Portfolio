@@ -204,3 +204,74 @@ document.getElementById('contactForm').addEventListener('submit', async function
         submitBtn.textContent = 'Send Message';
     }
 });
+
+// About section animation on scroll
+function animateAboutSection() {
+    const aboutItems = document.querySelectorAll('.about-item');
+    const options = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
+
+    aboutItems.forEach(item => {
+        observer.observe(item);
+    });
+}
+
+// Call this function when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    animateAboutSection();
+});
+
+// Hero ring animation and interaction
+function initHeroRing() {
+    const hero = document.querySelector('.hero');
+    const ring = document.createElement('div');
+    ring.className = 'hero-ring';
+    
+    const innerRing = document.createElement('div');
+    innerRing.className = 'hero-ring-inner';
+    
+    const orb = document.createElement('div');
+    orb.className = 'hero-ring-orb';
+    
+    ring.appendChild(innerRing);
+    innerRing.appendChild(orb);
+    hero.appendChild(ring);
+    
+    // Make ring interactive with mouse movement
+    hero.addEventListener('mousemove', (e) => {
+        const rect = hero.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
+        
+        // Tilt the ring slightly toward mouse position
+        ring.style.transform = `translate(-50%, -50%) rotate(${angle + 90}deg)`;
+        innerRing.style.transform = `translate(-50%, -50%) rotate(${-angle - 90}deg)`;
+    });
+    
+    // Reset ring position when mouse leaves
+    hero.addEventListener('mouseleave', () => {
+        ring.style.transform = 'translate(-50%, -50%)';
+        innerRing.style.transform = 'translate(-50%, -50%)';
+    });
+}
+
+// Call this function when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initHeroRing();
+});
