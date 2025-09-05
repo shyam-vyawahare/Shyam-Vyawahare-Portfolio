@@ -131,8 +131,6 @@ h1 {
 
 .hero h1 {
   font-family: 'Poppins', 'Poppins-fallback', sans-serif;
-  /* Remove animations temporarily for testing */
-  animation: none !important;
   opacity: 1 !important;
 }
 
