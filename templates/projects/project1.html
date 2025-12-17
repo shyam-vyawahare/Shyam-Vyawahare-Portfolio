@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morphed Image Detector | Shyam Vyawahare</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../../static/images/SVfavicon.png">
+</head>
+<body>
+    <!-- Project Header -->
+    <section id="home" class="hero project-hero">
+        <div class="container">
+            <h1>Morphed Image Detector</h1>
+            <p class="tagline">Machine Learning System to Detect Facial Morphing Attacks</p>
+            <div class="project-meta">
+                <span class="project-date">2024</span>
+                <span class="project-tags">Python • TensorFlow • OpenCV • Flask</span>
+            </div>
+            <a href="https://github.com/shyam-vyawahare/AI-Morphed-Image-Detection" class="btn github-btn" target="_blank">
+                <img src="../../static/images/github.png" class="emoji-size">
+                View project on GitHub
+            </a>
+        </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="section project-details">
+        <div class="container">
+            <div class="project-content">
+                <h2>Project Overview</h2>
+                <p>The Morphed Image Detector is a machine learning-based system designed to identify digitally altered facial images, particularly those used in identity fraud scenarios. This project addresses the growing concern of morphing attacks where two faces are blended to create a new identity image that can match both individuals.</p>
+                
+                <div class="project-features">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Advanced image processing pipeline using OpenCV</li>
+                        <li>Custom CNN architecture trained on morphed and genuine facial images</li>
+                        <li>Real-time detection capability through web interface</li>
+                        <li>Detailed confidence scoring for detection results</li>
+                        <li>Visualization of tampered regions in suspect images</li>
+                    </ul>
+                </div>
+                
+                <div class="project-tech">
+                    <h3>Technology Stack</h3>
+                    <div class="tech-stack">
+                        <div class="tech-item">
+                            <h4>Backend</h4>
+                            <p>Python, TensorFlow, Keras, OpenCV, Flask</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Frontend</h4>
+                            <p>HTML5, CSS3, JavaScript, Bootstrap</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Deployment</h4>
+                            <p>Docker, Heroku (for demo)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-challenges">
+                    <h3>Challenges & Solutions</h3>
+                    <div class="challenge">
+                        <h4>Limited Training Data</h4>
+                        <p>Facial morphing datasets are scarce. We addressed this by creating synthetic morphed images using OpenCV and GAN-based approaches to augment our training set.</p>
+                    </div>
+                    <div class="challenge">
+                        <h4>Subtle Morphing Detection</h4>
+                        <p>High-quality morphs are visually indistinguishable. Our solution focuses on micro-texture analysis and frequency domain features that reveal tampering artifacts.</p>
+                    </div>
+                </div>
+                
+                <div class="project-gallery">
+                    <h3>Project Screenshots</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="../../static/images/project1-1.png" alt="Morphed Image Detection Interface">
+                            <p>Web interface for image upload and analysis</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../../static/images/project1-2.png" alt="Detection Results">
+                            <p>Results showing original image as aproved</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../../static/images/project1-3.png" alt="Detection Results">
+                            <p>Results showing tampered image as denied</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../../static/images/project1-4.png" alt="Detection Results">
+                            <p>MorphShield about section</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../../static/images/project1-5.png" alt="Detection Results">
+                            <p>MorphShield creators</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../../static/images/project1-6.png" alt="Detection Results">
+                            <p>MorphShield signup page</p>                        
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../../static/images/project1-7.png" alt="Detection Results">
+                            <p>MorphShield login page</p>                        
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-links">
+                    <a href="/#projects" class="btn">Back to Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <img class="ftimg" src="../../static/images/shname.png"> <span><img class="ftimg" src="../../static/images/vyname.png"></span>
+        <p>&copy; 2025 Shyam Vyawahare. All rights reserved.</p>
+    </footer>
+    
+    <script src="../../static/js/script.js"></script>
+</body>
+</html>
