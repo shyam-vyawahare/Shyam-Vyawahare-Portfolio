@@ -75,24 +75,39 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // =============================================
-  // Dark/light mode toggle
+  // Dark/light mode toggle (professional switch)
   // =============================================
-  const modeToggle = document.createElement('div');
+  const modeToggle = document.createElement('button');
+  modeToggle.type = 'button';
   modeToggle.className = 'mode-toggle';
-  modeToggle.innerHTML = '🌓';
+  modeToggle.setAttribute('aria-label', 'Toggle dark mode');
+  modeToggle.innerHTML = `
+    <span class="mode-toggle-track">
+      <span class="mode-toggle-thumb"></span>
+      <span class="theme-toggle-icon theme-toggle-icon-sun">☀️</span>
+      <span class="theme-toggle-icon theme-toggle-icon-moon">🌙</span>
+    </span>
+  `;
   document.body.appendChild(modeToggle);
-  
-  modeToggle.addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-    this.innerHTML = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
-  });
 
-  // Check for saved preference
+  const applyTheme = (isDark) => {
+    if (isDark) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+    localStorage.setItem('darkMode', isDark ? 'true' : 'false');
+  };
+
+  // Initialize from saved preference (falls back to light)
   if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-mode');
-    modeToggle.innerHTML = '🌙';
+    applyTheme(true);
   }
+
+  modeToggle.addEventListener('click', () => {
+    const isDark = !document.body.classList.contains('dark-mode');
+    applyTheme(isDark);
+  });
 
   // =============================================
   // Smooth scrolling for section links
