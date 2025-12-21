@@ -94,34 +94,10 @@ body {
 }
 
 .nav-logo-text {
-    background-image: linear-gradient(to bottom, #427fa8, #36defc, #1311a3);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    color: var(--primary-color);
     line-height: -1;
     display: flex;
     align-items: center;
-}
-
-.nav-logo a:hover {
-    background-image: linear-gradient(to bottom, #0c4063, #36defc, #3e0863);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-.dark-mode .nav-logo a {
-    background-image: linear-gradient(to bottom, #0c4063, #36defc, #1311a3);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-.dark-mode .nav-logo a:hover {
-    background-image: linear-gradient(to bottom, #d5e7f3, #10cef0, #43004e);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
 }
 
 .nav-menu {
@@ -243,7 +219,7 @@ a {
     overflow: hidden;
     padding: 2rem;
     padding-top: 70px;
-    background: linear-gradient( 45deg, #4bc8e7 0%, /* warm sunrise */
+    background: linear-gradient( 45deg, #96e9fd 0%, /* warm sunrise */
     #ffffff 50%, /* soft sky teal */
     #5e3877 100%/* gentle daylight yellow */
     );
@@ -1840,9 +1816,10 @@ footer::before {
 
 .mode-toggle {
     position: fixed;
+    right: 30px;
     top: 85px;
     /* Below navbar */
-    right: 20px;
+    margin-right: 3px;
     z-index: 999;
     border: none;
     padding: 0;
@@ -2564,6 +2541,8 @@ footer::before {
         box-sizing: border-box;
     }
     .nav-toggle {
+        height: 26px;
+        width: 26px;
         display: flex;
     }
     .nav-menu {
@@ -2590,22 +2569,23 @@ footer::before {
         padding: 1rem 0;
     }
     .dark-mode .nav-menu {
-        background: rgba(13, 13, 61, 0.55);
+        background: rgba(4, 4, 17, 0.55);
         backdrop-filter: blur(20px) saturate(160%);
         -webkit-backdrop-filter: blur(20px) saturate(160%);
         box-shadow: 0 10px 27px rgba(7, 7, 7, 0.377);
         border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
     .mode-toggle {
-        top: 75px;
-        right: 12px;
-        transform: scale(0.95);
+        top: 80px;
+        right: 20px;
+        margin-right: 25px;
     }
     /* Hero Section Mobile Fix */
     .hero {
-        background: linear-gradient( 45deg, #4bc8e7 0%, /* warm sunrise */
-        #ffffff 50%, /* soft sky teal */
-        #5e3877 100%/* gentle daylight yellow */
+        background: linear-gradient( 45deg, #7b8b8f 0%, /* warm sunrise */
+        #d3b3f7 25%, /* bright morning light */
+        #d0b7e2 50%, /* soft sky teal */
+        #805f94 100%/* gentle daylight yellow */
         );
         background-size: 220% 220%;
         animation: gradientBG 10s linear infinite;
