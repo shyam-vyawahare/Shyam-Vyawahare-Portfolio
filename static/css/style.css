@@ -2582,13 +2582,21 @@ footer::before {
     }
     /* Hero Section Mobile Fix */
     .hero {
-        background: linear-gradient( 45deg, #7b8b8f 0%, /* warm sunrise */
-        #d3b3f7 25%, /* bright morning light */
-        #d0b7e2 50%, /* soft sky teal */
-        #805f94 100%/* gentle daylight yellow */
-        );
+        background: linear-gradient( 45deg, #567f8a 0%, #cea7df 25%, #ffffff 50%, #c170f7 100%);
+        background-size: cover;
         background-size: 220% 220%;
         animation: gradientBG 10s linear infinite;
+    }
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: -20%;
+        pointer-events: none;
+        background: linear-gradient( 45deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.35));
+        background-size: 200% 200%;
+        animation: gradientBG 18s linear infinite;
+        will-change: background-position;
+        opacity: 0.55;
     }
     .hero h1 {
         font-size: 2.5rem;
