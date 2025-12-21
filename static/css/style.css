@@ -2582,7 +2582,7 @@ footer::before {
     }
     /* Hero Section Mobile Fix */
     .hero {
-        background: linear-gradient( 45deg, #567f8a 0%, #cea7df 25%, #ffffff 50%, #c170f7 100%);
+        background: linear-gradient( 45deg, #61abc0 0%, #b1daeb 25%, #ffffff 50%, #c170f7 100%);
         background-size: cover;
         background-size: 220% 220%;
         animation: gradientBG 10s linear infinite;
