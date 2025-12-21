@@ -243,9 +243,9 @@ a {
     overflow: hidden;
     padding: 2rem;
     padding-top: 70px;
-    background: linear-gradient( 45deg, #ad4103 0%, /* warm sunrise */
+    background: linear-gradient( 45deg, #f8ad81 0%, /* warm sunrise */
     #a4f7f0 50%, /* soft sky teal */
-    #fae20d 100%/* gentle daylight yellow */
+    #cabe50 100%/* gentle daylight yellow */
     );
     background-size: 220% 220%;
     animation: gradientBG 10s ease infinite;
@@ -409,7 +409,7 @@ h1 {
 .dark-mode .hero::after {
     background-image: radial-gradient(circle at 15% 20%, rgba(59, 3, 189, 0.35), transparent 55%), /* violet nebula */
     radial-gradient(circle at 80% 15%, rgba(56, 189, 248, 0.30), transparent 55%), /* cosmic blue */
-    radial-gradient(circle at 60% 85%, rgba(0, 0, 0, 0.28), transparent 55%);
+    radial-gradient(circle at 60% 85%, rgba(59, 0, 66, 0.28), transparent 55%);
     /* aurora teal */
     opacity: 0.55;
     animation: gradientBG 20s ease infinite;
