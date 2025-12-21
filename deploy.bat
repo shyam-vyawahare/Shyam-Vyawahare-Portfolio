@@ -1,16 +1,19 @@
 @echo off
+setlocal enabledelayedexpansion
+
 echo ========================================
 echo   Portfolio Deployment Script
 echo ========================================
 echo.
 
-echo [1/4] Checking Git status...
-git status
+echo [1/4] Checking Git repository...
+git rev-parse --is-inside-work-tree >nul 2>&1
 if errorlevel 1 (
-    echo ERROR: Git not found or not initialized!
+    echo ERROR: This is not a Git repository!
     pause
     exit /b 1
 )
+echo ✓ Git repository detected
 echo.
 
 echo [2/4] Staging all changes...
@@ -29,32 +32,38 @@ if "%COMMIT_MSG%"=="" set COMMIT_MSG=Update portfolio files
 
 git commit -m "%COMMIT_MSG%"
 if errorlevel 1 (
-    echo WARNING: No changes to commit or commit failed!
-    echo.
-    echo Do you want to continue with push anyway? (Y/N)
-    set /p CONTINUE=
-    if /i not "%CONTINUE%"=="Y" (
-        echo Deployment cancelled.
-        pause
-        exit /b 1
-    )
+    echo ℹ No new changes to commit.
+    echo Skipping commit step.
+) else (
+    echo ✓ Commit created successfully
 )
-echo ✓ Changes committed
 echo.
 
-echo [4/4] Pushing to GitHub...
-git push origin main
-if errorlevel 1 (
-    echo ERROR: Failed to push to GitHub!
-    echo.
-    echo Possible issues:
-    echo - Not authenticated with GitHub
-    echo - Network connection problem
-    echo - Remote repository access denied
-    echo.
+echo [4/4] Detecting current branch...
+for /f %%b in ('git branch --show-current') do set BRANCH=%%b
+
+if "%BRANCH%"=="" (
+    echo ERROR: Could not detect current branch!
     pause
     exit /b 1
 )
+
+echo ✓ Current branch: %BRANCH%
+echo.
+
+echo Pushing to GitHub...
+git push origin %BRANCH%
+if errorlevel 1 (
+    echo ERROR: Push failed!
+    echo.
+    echo Possible fixes:
+    echo - Run: git config --global --unset http.sslcainfo
+    echo - Or re-login: git config --global --unset credential.helper
+    echo - Or check GitHub token authentication
+    pause
+    exit /b 1
+)
+
 echo ✓ Successfully pushed to GitHub
 echo.
 
@@ -62,11 +71,7 @@ echo ========================================
 echo   Deployment Complete!
 echo ========================================
 echo.
-echo Your changes have been pushed to:
-echo https://github.com/shyam-vyawahare/Shyam-Vyawahare-Portfolio
-echo.
-echo If Vercel is connected, it will automatically deploy.
+echo Repo: https://github.com/shyam-vyawahare/Shyam-Vyawahare-Portfolio
 echo.
 
 pause
-
