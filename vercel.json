@@ -1,18 +1,22 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/index", "destination": "/index.html" },
-    { "source": "/projects/:path*", "destination": "/projects/:path*.html" }
-  ],
-  "headers": [
-    {
-      "source": "/static/(.*)",
-      "headers": [
+    "rewrites": [
+        { "source": "/", "destination": "/index.html" },
+        { "source": "/index", "destination": "/index.html" },
+        { "source": "/projects/:path*", "destination": "/projects/:path*.html" }
+    ],
+    "headers": [{
+            "source": "/static/(.*)",
+            "headers": [{
+                "key": "Cache-Control",
+                "value": "public, max-age=31536000, immutable"
+            }]
+        },
         {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
+            "source": "/(.*).html",
+            "headers": [{
+                "key": "Cache-Control",
+                "value": "no-store, must-revalidate"
+            }]
         }
-      ]
-    }
-  ]
+    ]
 }
