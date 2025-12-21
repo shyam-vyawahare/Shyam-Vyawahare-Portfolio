@@ -243,9 +243,9 @@ a {
     overflow: hidden;
     padding: 2rem;
     padding-top: 70px;
-    background: linear-gradient( 45deg, #f8ad81 0%, /* warm sunrise */
-    #a4f7f0 50%, /* soft sky teal */
-    #cabe50 100%/* gentle daylight yellow */
+    background: linear-gradient( 45deg, #4bc8e7 0%, /* warm sunrise */
+    #ffffff 50%, /* soft sky teal */
+    #5e3877 100%/* gentle daylight yellow */
     );
     background-size: 220% 220%;
     animation: gradientBG 10s ease infinite;
@@ -257,9 +257,9 @@ a {
     position: absolute;
     inset: -10%;
     pointer-events: none;
-    background-image: radial-gradient(circle at 15% 20%, rgba(252, 153, 25, 0.35), transparent 55%), /* warm sun orb */
-    radial-gradient(circle at 80% 15%, #58c7c74d, transparent 55%), /* sky teal */
-    radial-gradient(circle at 60% 85%, rgba(172, 0, 0, 0.35), transparent 55%);
+    background-image: radial-gradient(circle at 15% 20%, rgba(143, 182, 255, 0.35), transparent 55%), /* warm sun orb */
+    radial-gradient(circle at 80% 15%, #2b4d4d4d, transparent 55%), /* sky teal */
+    radial-gradient(circle at 60% 85%, rgba(248, 193, 255, 0.35), transparent 55%);
     /* soft glow */
     opacity: 0.65;
     animation: gradientBG 18s ease infinite;
@@ -400,15 +400,15 @@ h1 {
     background: linear-gradient( 135deg, #4d0249 0%, /* deep space black */
     #010002 35%, /* nebula purple */
     #0b1429 70%, /* deep cosmic blue */
-    #35024b 100%/* night void */
+    #5f0088 100%/* night void */
     );
     background-size: 200% 200%;
     animation: gradientBG 12s ease infinite;
 }
 
 .dark-mode .hero::after {
-    background-image: radial-gradient(circle at 15% 20%, rgba(59, 3, 189, 0.35), transparent 55%), /* violet nebula */
-    radial-gradient(circle at 80% 15%, rgba(56, 189, 248, 0.30), transparent 55%), /* cosmic blue */
+    background-image: radial-gradient(circle at 15% 20%, rgba(43, 6, 131, 0.35), transparent 55%), /* violet nebula */
+    radial-gradient(circle at 80% 15%, rgba(54, 195, 255, 0.3), transparent 55%), /* cosmic blue */
     radial-gradient(circle at 60% 85%, rgba(59, 0, 66, 0.28), transparent 55%);
     /* aurora teal */
     opacity: 0.55;
@@ -2571,13 +2571,17 @@ footer::before {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background: rgba(255, 255, 255, 0.98);
+        background: rgba(120, 252, 245, 0.616);
+        backdrop-filter: blur(10px) saturate(140%);
+        -webkit-backdrop-filter: blur(18px) saturate(140%);
+        border-top: 1px solid rgba(255, 255, 255, 0.651);
         width: 100%;
         text-align: center;
-        transition: left 0.3s ease;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        transition: transform 0.35s ease, opacity 0.35s ease;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.452);
         padding: 2rem 0;
         gap: 0;
+        z-index: 999;
     }
     .nav-menu.active {
         left: 0;
@@ -2586,7 +2590,11 @@ footer::before {
         padding: 1rem 0;
     }
     .dark-mode .nav-menu {
-        background: rgba(18, 18, 18, 0.98);
+        background: rgba(13, 13, 61, 0.55);
+        backdrop-filter: blur(20px) saturate(160%);
+        -webkit-backdrop-filter: blur(20px) saturate(160%);
+        box-shadow: 0 10px 27px rgba(7, 7, 7, 0.377);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
     .mode-toggle {
         top: 75px;
@@ -2595,9 +2603,12 @@ footer::before {
     }
     /* Hero Section Mobile Fix */
     .hero {
-        height: 100vh;
-        padding: 1rem;
-        text-align: center;
+        background: linear-gradient( 45deg, #4bc8e7 0%, /* warm sunrise */
+        #ffffff 50%, /* soft sky teal */
+        #5e3877 100%/* gentle daylight yellow */
+        );
+        background-size: 220% 220%;
+        animation: gradientBG 10s linear infinite;
     }
     .hero h1 {
         font-size: 2.5rem;
@@ -2813,8 +2824,8 @@ footer::before {
         top: 80px;
         /* Below navbar on mobile */
         right: 15px;
-        width: 36px;
-        height: 36px;
+        width: 43px;
+        height: 43px;
         font-size: 1rem;
     }
     /* Animation adjustments for mobile */
