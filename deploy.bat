@@ -6,7 +6,7 @@ echo   Portfolio Deployment Script
 echo ========================================
 echo.
 
-echo [1/4] Checking Git repository...
+echo [1/5] Checking Git repository...
 git rev-parse --is-inside-work-tree >nul 2>&1
 if errorlevel 1 (
     echo ERROR: This is not a Git repository!
@@ -16,7 +16,7 @@ if errorlevel 1 (
 echo ✓ Git repository detected
 echo.
 
-echo [2/4] Staging all changes...
+echo [2/5] Staging all changes...
 git add -A
 if errorlevel 1 (
     echo ERROR: Failed to stage changes!
@@ -26,7 +26,7 @@ if errorlevel 1 (
 echo ✓ All changes staged
 echo.
 
-echo [3/4] Enter commit message (or press Enter for default):
+echo [3/5] Enter commit message (or press Enter for default):
 set /p COMMIT_MSG="Commit message: "
 if "%COMMIT_MSG%"=="" set COMMIT_MSG=Update portfolio files
 
@@ -39,14 +39,26 @@ if errorlevel 1 (
 )
 echo.
 
-echo [4/4] Detecting current branch...
-for /f %%b in ('git branch --show-current') do set BRANCH=%%b
-
-if "%BRANCH%"=="" (
-    echo ERROR: Could not detect current branch!
+echo [4/5] Pulling latest changes from GitHub...
+git pull origin %BRANCH% --rebase
+if errorlevel 1 (
+    echo ERROR: Pull failed due to conflicts.
+    echo Please resolve conflicts, then re-run the script.
     pause
     exit /b 1
 )
+echo ✓ Repository up to date
+echo.
+
+echo [5/5] Pushing to GitHub...
+git push origin %BRANCH%
+if errorlevel 1 (
+    echo ERROR: Push failed!
+    pause
+    exit /b 1
+)
+echo ✓ Successfully pushed to GitHub
+
 
 echo ✓ Current branch: %BRANCH%
 echo.
