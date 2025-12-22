@@ -2873,21 +2873,23 @@ footer::before {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        gap: 8px;
         justify-content: center;
+        gap: 5px;
         width: 100%;
-        padding: 0 10px;
+        padding: 0 5px;
     }
     .grad-btn {
         flex: 1;
         min-width: 0;
-        max-width: 120px;
     }
     .grad-btn span {
-        padding: 8px 4px;
-        font-size: 0.75rem;
+        padding: 8px 2px;
+        font-size: 0.65rem;
         text-align: center;
+        display: block;
+        overflow: hidden;
         white-space: nowrap;
+        letter-spacing: -0.2px;
     }
     .profile-frame {
         width: 200px;
