@@ -53,36 +53,47 @@ document.addEventListener('DOMContentLoaded', function() {
         elementObserver.observe(element);
     });
 
-    document.addEventListener('click', function(event) {
+    // Close mobile menu on various interactions 
+    // Function to handle the menu closing
+    function forceCloseMenu() {
         const navMenu = document.querySelector('.nav-menu');
         const navToggle = document.querySelector('.nav-toggle');
 
-        // Only run if the menu is currently open
+        if (navMenu && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            console.log("Menu closed successfully"); // Debugging check
+        }
+    }
+
+    // Global click listener
+    document.addEventListener('click', function(e) {
+        const navMenu = document.querySelector('.nav-menu');
+        const navToggle = document.querySelector('.nav-toggle');
+
+        if (!navMenu || !navToggle) return; // Exit if elements aren't found
+
         if (navMenu.classList.contains('active')) {
+            // If clicking a LINK inside the menu, close it
+            if (e.target.tagName === 'A' || e.target.parentElement.tagName === 'A') {
+                forceCloseMenu();
+                return;
+            }
 
-            // Check if the click happened inside the menu or on the toggle button
-            const isClickInsideMenu = navMenu.contains(event.target);
-            const isClickOnToggle = navToggle.contains(event.target);
+            // If clicking OUTSIDE the menu and NOT on the toggle button, close it
+            const isClickInside = navMenu.contains(e.target);
+            const isClickOnToggle = navToggle.contains(e.target);
 
-            // If click is outside both, close the menu
-            if (!isClickInsideMenu && !isClickOnToggle) {
-                navMenu.classList.remove('active');
-                // If your toggle button has an 'active' class for the X animation, remove it too
-                navToggle.classList.remove('active');
+            if (!isClickInside && !isClickOnToggle) {
+                forceCloseMenu();
             }
         }
     });
 
-    // Close mobile menu when a link is clicked
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            const navLinks = document.querySelector('.nav-links');
-            const hamburger = document.querySelector('.hamburger');
-
-            navLinks.classList.remove('active');
-            hamburger.classList.remove('active');
-        });
-    });
+    // Scroll listener
+    window.addEventListener('scroll', function() {
+        forceCloseMenu();
+    }, { passive: true });
 
     // =============================================
     // Hover effect for project cards 
