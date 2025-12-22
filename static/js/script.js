@@ -324,6 +324,44 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+const words = ["AI Developer", "Full-Stack Web Developer", "Digital Artist", "Novelist", "Content Writer"];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const dynamicText = document.getElementById("dynamic-text");
+
+function typeEffect() {
+    const currentWord = words[wordIndex];
+
+    if (isDeleting) {
+        // Remove characters
+        dynamicText.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        // Add characters
+        dynamicText.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    // Timing logic
+    let typeSpeed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && charIndex === currentWord.length) {
+        // Pause at the end of the word
+        typeSpeed = 2000;
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typeSpeed = 500;
+    }
+
+    setTimeout(typeEffect, typeSpeed);
+}
+
+// Start the effect
+document.addEventListener("DOMContentLoaded", typeEffect);
+
 // About section animation on scroll
 function animateAboutSection() {
     const aboutItems = document.querySelectorAll('.about-item');

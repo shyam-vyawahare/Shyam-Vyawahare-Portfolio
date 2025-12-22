@@ -243,11 +243,16 @@ a {
 .hero-right {
     flex: 1.2;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
 }
 
 
 /* ======================
-   Profile Photo Fixes
+   Profile Photo 
    ====================== */
 
 .profile-wrapper {
@@ -372,12 +377,53 @@ a {
     }
 }
 
+#dynamic-text {
+    color: #c170f7;
+    /* Matching your gradient purple */
+    font-weight: 600;
+    border-right: 2px solid #c170f7;
+    /* The cursor */
+    padding-right: 5px;
+    animation: blink 0.7s infinite;
+}
+
+.dark-mode #dynamic-text {
+    color: #96e9fd;
+    /* Cyan for dark mode */
+    border-right-color: #96e9fd;
+}
+
+@keyframes blink {
+    0%,
+    100% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: inherit;
+    }
+}
+
+
+/* Ensure the tagline has a fixed height so the 
+   page doesn't "jump" when words change */
+
+.tagline {
+    min-height: 1.5em;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    min-height: 1.6em;
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
 
 /* Button Styling (21st.dev style) */
 
 .hero-right h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
-    /* Responsive font size */
     margin: 0.5rem 0;
     line-height: 1.1;
 }
@@ -391,9 +437,11 @@ a {
 
 .hero-btns {
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    /* Important for mobile */
+    flex-direction: row;
+    gap: 15px;
+    align-self: flex-start;
+    width: auto;
+    margin-top: 10px;
 }
 
 .grad-btn {
@@ -2862,6 +2910,11 @@ footer::before {
         top: 80px;
         right: 20px;
         margin-right: 25px;
+    }
+    .tagline {
+        text-align: center;
+        font-size: 1.1rem;
+        min-height: 2.5em;
     }
     /* Hero Section Mobile Fix */
     .hero-layout {
