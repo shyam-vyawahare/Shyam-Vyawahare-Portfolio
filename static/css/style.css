@@ -19,9 +19,15 @@ body {
     padding: 0;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: #f9f9f9;
     scroll-behavior: smooth;
     padding-top: 0;
+    background-color: #0b0f1a;
+    color: #ffffff;
+}
+
+body:not(.dark-mode) {
+    background-color: #ffffff;
+    color: #0b0f1a;
 }
 
 
@@ -437,11 +443,10 @@ a {
 
 .hero-btns {
     display: flex;
-    flex-direction: row;
-    gap: 15px;
-    align-self: flex-start;
-    width: auto;
-    margin-top: 10px;
+    gap: 12px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .grad-btn {
@@ -2806,9 +2811,6 @@ footer::before {
         justify-content: center;
         width: 100%;
     }
-    .scroll-indicator {
-        display: none;
-    }
     .about-item {
         gap: 2rem;
     }
@@ -2894,6 +2896,7 @@ footer::before {
         padding: 2rem 0;
         gap: 0;
         z-index: 999;
+        transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s linear;
     }
     .nav-menu.active {
         left: 0;
@@ -3031,9 +3034,6 @@ footer::before {
     .greeting::after {
         width: 70%;
         bottom: -5px;
-    }
-    .scroll-indicator {
-        display: none;
     }
     /* Section adjustments */
     .section {

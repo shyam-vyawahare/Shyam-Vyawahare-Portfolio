@@ -94,7 +94,20 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         forceCloseMenu();
     }, { passive: true });
+    let isScrolling;
 
+    window.addEventListener('scroll', function() {
+        // This ensures we only run the logic once per screen refresh
+        window.requestAnimationFrame(() => {
+            const navMenu = document.querySelector('.nav-menu');
+            const navToggle = document.querySelector('.nav-toggle');
+
+            if (navMenu && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
+    }, { passive: true });
     // =============================================
     // Hover effect for project cards 
     // =============================================
@@ -128,38 +141,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // =============================================
-    // Dark/light mode toggle (professional switch)
+    // Dark/light mode toggle (Professional Switch)
     // =============================================
     const modeToggle = document.createElement('button');
     modeToggle.type = 'button';
     modeToggle.className = 'mode-toggle';
     modeToggle.setAttribute('aria-label', 'Toggle dark mode');
     modeToggle.innerHTML = `
-    <span class="mode-toggle-track">
-      <span class="mode-toggle-thumb"></span>
-      <span class="theme-toggle-icon theme-toggle-icon-sun">☀️</span>
-      <span class="theme-toggle-icon theme-toggle-icon-moon">🌙</span>
-    </span>
-  `;
+  <span class="mode-toggle-track">
+    <span class="mode-toggle-thumb"></span>
+    <span class="theme-toggle-icon theme-toggle-icon-sun">☀️</span>
+    <span class="theme-toggle-icon theme-toggle-icon-moon">🌙</span>
+  </span>
+`;
     document.body.appendChild(modeToggle);
 
+    // This function handles the actual switching
     const applyTheme = (isDark) => {
         if (isDark) {
             document.body.classList.add('dark-mode');
         } else {
             document.body.classList.remove('dark-mode');
         }
+        // Save the choice so it persists on refresh
         localStorage.setItem('darkMode', isDark ? 'true' : 'false');
     };
+    // On page load, check for saved preference
+    const savedPreference = localStorage.getItem('darkMode');
 
-    // Initialize from saved preference (falls back to light)
-    if (localStorage.getItem('darkMode') === 'true') {
-        applyTheme(true);
+    if (savedPreference === null || savedPreference === 'true') {
+        applyTheme(true); // Default to dark mode
+    } else {
+        applyTheme(false); // User previously chose light mode
     }
 
+    // Handle the click event
     modeToggle.addEventListener('click', () => {
-        const isDark = !document.body.classList.contains('dark-mode');
-        applyTheme(isDark);
+        // If body has dark-mode, we are turning it OFF. If not, we are turning it ON.
+        const currentlyDark = document.body.classList.contains('dark-mode');
+        applyTheme(!currentlyDark);
     });
 
     // =============================================
