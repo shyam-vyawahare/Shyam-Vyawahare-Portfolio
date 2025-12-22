@@ -2582,21 +2582,30 @@ footer::before {
     }
     /* Hero Section Mobile Fix */
     .hero {
-        background: linear-gradient( 45deg, #61abc0 0%, #b1daeb 25%, #ffffff 50%, #c170f7 100%);
-        background-size: cover;
-        background-size: 220% 220%;
+        position: relative;
+        /* Ensure parent is positioned */
+        overflow: hidden;
+        /* Clip the -20% inset */
+        background: linear-gradient(45deg, #61abc0 0%, #b1daeb 25%, #ffffff 50%, #c170f7 100%);
+        background-size: 400% 400%;
+        /* Increased for smoother movement */
         animation: gradientBG 10s linear infinite;
+        z-index: 1;
     }
     .hero::before {
         content: "";
         position: absolute;
         inset: -20%;
         pointer-events: none;
-        background: linear-gradient( 45deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.35));
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.35));
         background-size: 200% 200%;
         animation: gradientBG 18s linear infinite;
-        will-change: background-position;
+        will-change: transform, background-position;
+        transform: translateZ(0);
+        /* Forces GPU rendering on mobile */
         opacity: 0.55;
+        z-index: -1;
+        /* Keeps it behind text but above the .hero background */
     }
     .hero h1 {
         font-size: 2.5rem;
