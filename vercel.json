@@ -1,10 +1,5 @@
 {
     "version": 2,
-    "rewrites": [
-        { "source": "/", "destination": "/index.html" },
-        { "source": "/index", "destination": "/index.html" },
-        { "source": "/projects/:path*", "destination": "/projects/:path*.html" }
-    ],
     "headers": [{
             "source": "/static/(.*)",
             "headers": [{
@@ -13,10 +8,10 @@
             }]
         },
         {
-            "source": "/(.*).html",
+            "source": "/(.*)",
             "headers": [{
                 "key": "Cache-Control",
-                "value": "no-store, must-revalidate"
+                "value": "no-cache, no-store, must-revalidate"
             }]
         }
     ]
