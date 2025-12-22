@@ -2870,7 +2870,24 @@ footer::before {
         gap: 2rem;
     }
     .hero-btns {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 8px;
         justify-content: center;
+        width: 100%;
+        padding: 0 10px;
+    }
+    .grad-btn {
+        flex: 1;
+        min-width: 0;
+        max-width: 120px;
+    }
+    .grad-btn span {
+        padding: 8px 4px;
+        font-size: 0.75rem;
+        text-align: center;
+        white-space: nowrap;
     }
     .profile-frame {
         width: 200px;
