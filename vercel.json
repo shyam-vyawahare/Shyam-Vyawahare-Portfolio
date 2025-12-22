@@ -1,15 +1,23 @@
-"headers": [{
-        "source": "/static/(.*)",
-        "headers": [{
-            "key": "Cache-Control",
-            "value": "public, s-maxage=0, must-revalidate"
-        }]
-    },
-    {
-        "source": "/(.*)",
-        "headers": [{
-            "key": "Cache-Control",
-            "value": "no-cache, no-store, must-revalidate"
-        }]
-    }
-]
+{
+    "version": 2,
+    "rewrites": [
+        { "source": "/", "destination": "/index.html" },
+        { "source": "/index", "destination": "/index.html" },
+        { "source": "/projects/:path*", "destination": "/projects/:path*.html" }
+    ],
+    "headers": [{
+            "source": "/static/(.*)",
+            "headers": [{
+                "key": "Cache-Control",
+                "value": "public, s-maxage=0, must-revalidate"
+            }]
+        },
+        {
+            "source": "/(.*).html",
+            "headers": [{
+                "key": "Cache-Control",
+                "value": "no-store, must-revalidate"
+            }]
+        }
+    ]
+}
