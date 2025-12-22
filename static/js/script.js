@@ -139,7 +139,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-
     // =============================================
     // Dark/light mode toggle (Professional Switch)
     // =============================================
@@ -575,4 +574,15 @@ function initNavbar() {
             }
         });
     });
+}
+
+// Inside your DOMContentLoaded listener in script.js
+const savedPreference = localStorage.getItem('darkMode');
+
+// We only need to act if the user specifically chose LIGHT (false)
+// because the CSS is already handling the Dark default.
+if (savedPreference === 'false') {
+    document.body.classList.remove('dark-mode');
+} else {
+    document.body.classList.add('dark-mode');
 }

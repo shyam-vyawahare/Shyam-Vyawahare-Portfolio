@@ -8,6 +8,9 @@
     --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
     --section-padding: 6rem 0;
+    --bg-main: #0b0f1a;
+    --text-main: #ffffff;
+    --nav-bg: rgba(11, 15, 26, 0.8);
 }
 
 
@@ -21,13 +24,16 @@ body {
     color: var(--text-color);
     scroll-behavior: smooth;
     padding-top: 0;
-    background-color: #0b0f1a;
-    color: #ffffff;
+    background-color: var(--bg-main);
+    color: var(--text-main);
 }
 
 body:not(.dark-mode) {
     background-color: #ffffff;
     color: #0b0f1a;
+    --bg-main: #ffffff;
+    --text-main: #0b0f1a;
+    --nav-bg: rgba(255, 255, 255, 0.8);
 }
 
 
