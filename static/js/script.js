@@ -53,22 +53,22 @@ document.addEventListener('DOMContentLoaded', function() {
         elementObserver.observe(element);
     });
 
-    document.addEventListener('click', function(e) {
-        const navLinks = document.querySelector('.nav-links'); // Your mobile menu
-        const hamburger = document.querySelector('.hamburger'); // The menu button
+    document.addEventListener('click', function(event) {
+        const navMenu = document.querySelector('.nav-menu');
+        const navToggle = document.querySelector('.nav-toggle');
 
-        // Check if the menu is currently active/open
-        if (navLinks.classList.contains('active')) {
+        // Only run if the menu is currently open
+        if (navMenu.classList.contains('active')) {
 
-            // If the click was NOT on the menu and NOT on the hamburger button
-            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+            // Check if the click happened inside the menu or on the toggle button
+            const isClickInsideMenu = navMenu.contains(event.target);
+            const isClickOnToggle = navToggle.contains(event.target);
 
-                // Close the menu
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-
-                // If you use an 'aria-expanded' attribute for accessibility, update it here
-                hamburger.setAttribute('aria-expanded', 'false');
+            // If click is outside both, close the menu
+            if (!isClickInsideMenu && !isClickOnToggle) {
+                navMenu.classList.remove('active');
+                // If your toggle button has an 'active' class for the X animation, remove it too
+                navToggle.classList.remove('active');
             }
         }
     });

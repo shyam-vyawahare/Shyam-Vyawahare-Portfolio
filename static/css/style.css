@@ -2875,6 +2875,8 @@ footer::before {
         height: 26px;
         width: 26px;
         display: flex;
+        cursor: pointer;
+        z-index: 1001;
     }
     .nav-menu {
         position: fixed;
