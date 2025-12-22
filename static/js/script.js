@@ -53,6 +53,37 @@ document.addEventListener('DOMContentLoaded', function() {
         elementObserver.observe(element);
     });
 
+    document.addEventListener('click', function(e) {
+        const navLinks = document.querySelector('.nav-links'); // Your mobile menu
+        const hamburger = document.querySelector('.hamburger'); // The menu button
+
+        // Check if the menu is currently active/open
+        if (navLinks.classList.contains('active')) {
+
+            // If the click was NOT on the menu and NOT on the hamburger button
+            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+
+                // Close the menu
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+
+                // If you use an 'aria-expanded' attribute for accessibility, update it here
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        }
+    });
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            const navLinks = document.querySelector('.nav-links');
+            const hamburger = document.querySelector('.hamburger');
+
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+
     // =============================================
     // Hover effect for project cards 
     // =============================================
