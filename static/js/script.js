@@ -226,6 +226,20 @@ document.addEventListener('DOMContentLoaded', function() {
             // Any responsive adjustments would go here
         }, 250);
     });
+
+    // =============================================
+    // Loading Screen Logic
+    // =============================================
+    const loadingScreen = document.getElementById('loading-screen');
+    if (loadingScreen) {
+        // Ensure dark mode is applied before removing loader
+        // The applyTheme call above handles the dark mode
+        
+        // Small delay to ensure smooth transition and prevent flash
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+        }, 500);
+    }
 });
 
 // Add CSS for animations (inject if not already in your CSS)

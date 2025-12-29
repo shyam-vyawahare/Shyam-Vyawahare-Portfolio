@@ -6,11 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shyam Vyawahare | Portfolio</title>
     <link rel="stylesheet" href="/static/css/style.css?v=1.1.0">
+    <link rel="stylesheet" href="/static/css/skills.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/static/images/SVfavicon.png">
 </head>
 
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader-content">
+            <img src="/static/images/SVfavicon.png" alt="Loading..." class="loader-logo">
+            <div class="loader-ring"></div>
+        </div>
+    </div>
+
     <!-- Navigation Bar -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -21,8 +30,8 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#cv" class="nav-link">Resume</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#cv" class="nav-link">Resume</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-toggle" id="navToggle">
@@ -141,6 +150,81 @@
                 <h5>Visit project description site</h5>
             </a>
 
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <p class="section-subtitle">Technologies and tools I work with to build innovative solutions</p>
+            
+            <div class="skills-grid">
+                <!-- Languages -->
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="skill-items">
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">C++</span>
+                        <span class="skill-pill">C</span>
+                        <span class="skill-pill">JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- Frontend -->
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-items">
+                        <span class="skill-pill">React</span>
+                        <span class="skill-pill">Next.js</span>
+                        <span class="skill-pill">HTML</span>
+                        <span class="skill-pill">CSS</span>
+                        <span class="skill-pill">TailwindCSS</span>
+                    </div>
+                </div>
+
+                <!-- Backend & APIs -->
+                <div class="skill-category">
+                    <h3>Backend & APIs</h3>
+                    <div class="skill-items">
+                        <span class="skill-pill">FastAPI</span>
+                        <span class="skill-pill">Node.js</span>
+                        <span class="skill-pill">Express.js</span>
+                        <span class="skill-pill">Flask</span>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <div class="skill-items">
+                        <span class="skill-pill">MongoDB</span>
+                        <span class="skill-pill">MySQL</span>
+                    </div>
+                </div>
+
+                <!-- AI & ML -->
+                <div class="skill-category">
+                    <h3>AI & ML</h3>
+                    <div class="skill-items">
+                        <span class="skill-pill">Artificial Intelligence</span>
+                        <span class="skill-pill">Transformers</span>
+                        <span class="skill-pill">Deep Learning</span>
+                        <span class="skill-pill">LLMOps</span>
+                    </div>
+                </div>
+
+                <!-- Tools & More -->
+                <div class="skill-category">
+                    <h3>Tools & More</h3>
+                    <div class="skill-items">
+                        <span class="skill-pill">Docker</span>
+                        <span class="skill-pill">GitHub</span>
+                        <span class="skill-pill">Data Structures</span>
+                        <span class="skill-pill">Event Management</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
