@@ -2641,7 +2641,7 @@ footer::before {
 
 
 /* ======================
-   CV Section Styling
+   Resume Section Styling
    ====================== */
 
 #cv {
@@ -3233,7 +3233,7 @@ footer::before {
     .project-card:hover {
         transform: translateY(-3px);
     }
-    /* Mobile Responsiveness CV Section */
+    /* Mobile Responsiveness Resume Section */
     #cv {
         padding: 3rem 0;
     }
