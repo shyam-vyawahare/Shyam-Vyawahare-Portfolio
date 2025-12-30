@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Fallback for browsers that don't support document.fonts
         setTimeout(() => {
             document.documentElement.classList.add('fonts-loaded');
-        }, 300);
+        }, 600);
     }
 
     // =============================================
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (loadingScreen) {
         // Ensure dark mode is applied before removing loader
         // The applyTheme call above handles the dark mode
-        
+
         // Small delay to ensure smooth transition and prevent flash
         setTimeout(() => {
             document.body.classList.add('loaded');

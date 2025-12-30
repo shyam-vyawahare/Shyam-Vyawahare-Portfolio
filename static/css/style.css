@@ -15,13 +15,15 @@
 
 
 /* Loading Screen */
+
 #loading-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #0b0f1a; /* Match dark mode bg */
+    background-color: #0b0f1a;
+    /* Match dark mode bg */
     z-index: 9999;
     display: flex;
     justify-content: center;
@@ -52,15 +54,21 @@
     height: 100%;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #61abc0; /* Cyan */
-    border-right-color: #c170f7; /* Purple */
+    border-top-color: #61abc0;
+    /* Cyan */
+    border-right-color: #c170f7;
+    /* Purple */
     animation: spin 1s linear infinite;
     box-shadow: 0 0 15px rgba(97, 171, 192, 0.5), 0 0 15px rgba(193, 112, 247, 0.5);
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 body.loaded #loading-screen {
@@ -68,6 +76,7 @@ body.loaded #loading-screen {
     visibility: hidden;
     pointer-events: none;
 }
+
 
 /* Base Styles */
 
@@ -734,19 +743,15 @@ h1 {
 
 .dark-mode .hero {
     color: #eaeaf0;
-    background: linear-gradient( 135deg, #4d0249 0%, /* deep space black */
-    #010002 35%, /* nebula purple */
-    #0b1429 70%, /* deep cosmic blue */
-    #5f0088 100%/* night void */
-    );
+    background: linear-gradient( 135deg, #291528 0%, #010002 35%, #17181b 70%, #232024 100%);
     background-size: 200% 200%;
     animation: gradientBG 12s ease infinite;
 }
 
 .dark-mode .hero::after {
-    background-image: radial-gradient(circle at 15% 20%, rgba(43, 6, 131, 0.35), transparent 55%), /* violet nebula */
-    radial-gradient(circle at 80% 15%, rgba(54, 195, 255, 0.3), transparent 55%), /* cosmic blue */
-    radial-gradient(circle at 60% 85%, rgba(59, 0, 66, 0.28), transparent 55%);
+    background-image: radial-gradient(circle at 15% 20%, rgba(28, 20, 48, 0.35), transparent 55%), /* violet nebula */
+    radial-gradient(circle at 80% 15%, rgba(0, 0, 0, 0.3), transparent 55%), /* cosmic blue */
+    radial-gradient(circle at 60% 85%, rgba(23, 0, 26, 0.28), transparent 55%);
     /* aurora teal */
     opacity: 0.55;
     animation: gradientBG 20s ease infinite;
@@ -1418,6 +1423,7 @@ h1 {
     border-left-color: #339af0;
 }
 
+
 /* =========================
    Skills Section
    ========================= */
@@ -1440,6 +1446,7 @@ h1 {
     opacity: 0.85;
 }
 
+
 /* =========================
    Skills Grid Layout
    ========================= */
@@ -1449,6 +1456,7 @@ h1 {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
+
 
 /* =========================
    Skill Cards
@@ -1461,14 +1469,8 @@ h1 {
     background: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.12),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .skill-category h3 {
@@ -1477,13 +1479,14 @@ h1 {
     text-align: center;
 }
 
+
 /* Card hover pop */
+
 .skill-category:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow:
-        0 25px 50px rgba(0, 0, 0, 0.25),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
 }
+
 
 /* =========================
    Skill Pills
@@ -1501,26 +1504,22 @@ h1 {
     border-radius: 999px;
     font-size: 0.9rem;
     font-weight: 500;
-
     background: rgba(255, 255, 255, 0.7);
     color: #111;
-
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
 }
 
+
 /* Pill hover magic */
+
 .skill-pill:hover {
     transform: translateY(-4px) scale(1.05);
     background: linear-gradient(135deg, #7c7cff, #4fd1c5);
     color: #fff;
-    box-shadow:
-        0 12px 28px rgba(79, 209, 197, 0.45);
+    box-shadow: 0 12px 28px rgba(79, 209, 197, 0.45);
 }
+
 
 /* =========================
    Dark Mode Overrides
@@ -1532,15 +1531,11 @@ h1 {
 
 .dark-mode .skill-category {
     background: rgba(18, 18, 28, 0.6);
-    box-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.55),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .dark-mode .skill-category:hover {
-    box-shadow:
-        0 30px 65px rgba(0, 0, 0, 0.85),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 30px 65px rgba(0, 0, 0, 0.85), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
 .dark-mode .skill-pill {
@@ -1552,9 +1547,9 @@ h1 {
 .dark-mode .skill-pill:hover {
     background: linear-gradient(135deg, #8b5cf6, #22d3ee);
     color: #fff;
-    box-shadow:
-        0 12px 30px rgba(139, 92, 246, 0.55);
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.55);
 }
+
 
 /* ======================
    Contact Section Styling
@@ -3613,11 +3608,11 @@ footer::before {
     .skills-grid {
         grid-template-columns: 1fr;
     }
-
     .skill-category {
         padding: 1.8rem 1.4rem;
     }
 }
+
 
 /* ======================
    Animation Optimizations for Performance
