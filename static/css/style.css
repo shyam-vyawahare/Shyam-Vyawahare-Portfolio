@@ -968,7 +968,7 @@ h1 {
    ====================== */
 
 #about {
-    background: linear-gradient(135deg, #f0f4f8 0%, #dce3ea 100%);
+    background: linear-gradient(135deg, #afafaf 0%, #c4daec 50%, #ffffff 100%);
     position: relative;
     overflow: hidden;
 }
@@ -1248,7 +1248,7 @@ h1 {
 /* Dark Mode Adjustments */
 
 .dark-mode #about {
-    background: linear-gradient(135deg, #1c1f2b 0%, #2a2e46 50%, #40486b 100%);
+    background: linear-gradient(135deg, #1f1e1e 0%, #000000 50%, #1a1b1f 100%);
 }
 
 .dark-mode #about h2 {
@@ -1270,7 +1270,7 @@ h1 {
    ====================== */
 
 #projects {
-    background: linear-gradient(135deg, #e9f5ff 0%, #d0e7ff 100%);
+    background: linear-gradient(135deg, #e6f5ff 0%, #c8d3e0 50%, #c3c3e2 100%);
     position: relative;
     overflow: hidden;
 }
@@ -1398,7 +1398,7 @@ h1 {
 /* Dark Mode Adjustments */
 
 .dark-mode #projects {
-    background: linear-gradient(135deg, #1a2a3a 0%, #0d1b2a 100%);
+    background: linear-gradient(135deg, #131212 0%, #000000 50%, #040607 100%);
 }
 
 .dark-mode #projects h2 {
@@ -1418,8 +1418,8 @@ h1 {
 }
 
 .dark-mode #projects .project-card {
-    background: #212f45;
-    box-shadow: 0 5px 15px rgba(2, 48, 89, 0.3);
+    background: #0b0c0c;
+    box-shadow: 0 5px 15px rgba(132, 216, 236, 0.3);
     border-left-color: #339af0;
 }
 
@@ -1556,7 +1556,7 @@ h1 {
    ====================== */
 
 #contact {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: linear-gradient(135deg, #f2f8ff 0%, #bad4ec 100%);
     position: relative;
     overflow: hidden;
 }
@@ -1807,7 +1807,7 @@ textarea.form-control {
 /* Dark Mode Adjustments */
 
 .dark-mode #contact {
-    background: linear-gradient(135deg, #212529 0%, #343a40 100%);
+    background: linear-gradient(135deg, #0a0a0a 0%, #0e0b0b 50%, #313131 100%);
     color: #f8f9fa;
     /* Sets default text color to white */
 }
@@ -1821,13 +1821,13 @@ textarea.form-control {
 }
 
 .dark-mode .contact-form {
-    background: #2b3035;
+    background: #121313;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     color: #f8f9fa;
 }
 
 .dark-mode .contact-form:hover {
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 40px rgba(252, 96, 96, 0.3);
 }
 
 .dark-mode .form-group label {
@@ -1835,8 +1835,8 @@ textarea.form-control {
 }
 
 .dark-mode .form-control {
-    background: #343a40;
-    border-color: #495057;
+    background: #141111;
+    border-color: #b43c26;
     color: #f8f9fa;
 }
 
@@ -1845,12 +1845,12 @@ textarea.form-control {
 }
 
 .dark-mode .contact-item {
-    background: rgba(33, 37, 41, 0.7);
+    background: rgba(49, 47, 47, 0.7);
     color: #f8f9fa;
 }
 
 .dark-mode .contact-item:hover {
-    background: #343a40;
+    background: #791403;
 }
 
 .dark-mode .contact-icon {
@@ -2944,7 +2944,7 @@ footer::before {
 /* Dark Mode Adjustments */
 
 .dark-mode #cv {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    background: linear-gradient(135deg, #191b1f 0%, #000000 100%);
 }
 
 .dark-mode #cv h2 {
