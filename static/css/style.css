@@ -962,99 +962,132 @@ h1 {
     color: var(--dark-color);
 }
 
-/* About Section Styles */
+/* ====================
+About Section Layout 
+=======================*/
 .about-section {
-    padding: 80px 0;
-    background-color: var(--bg-main);
+    padding: 60px 0;
 }
 
-.section-title {
+.about-main-title {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 50px;
     font-weight: 800;
-    letter-spacing: -1px;
 }
 
 .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    align-items: start;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
-/* Card Styling */
+.about-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    min-width: 320px; /* Ensures responsiveness on smaller screens */
+}
+
+/* Card Base Styling */
 .about-card {
-    background: var(--card-bg);
-    padding: 30px;
+    flex: 1;
+    padding: 35px;
     border-radius: 20px;
-    margin-bottom: 25px;
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
 }
 
-.about-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.about-header {
+.about-icon-header {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
-.about-header i {
-    font-size: 1.5rem;
+.about-icon-header i {
+    font-size: 1.6rem;
 }
 
-.about-header h3 {
-    font-size: 1.25rem;
+.about-card h3 {
     margin: 0;
+    font-size: 1.3rem;
 }
 
-/* Specific Colors for Dark Mode (Default) */
-:root {
-    --bg-main: #000000; /* Pure Black */
-    --card-bg: #0a0a0a; /* Slight grey-black for depth */
-    --border-color: #1a1a1a;
-    --text-main: #e0e0e0;
-    --icon-tech: #3b82f6; /* Blue for tech */
-    --icon-creative: #a855f7; /* Purple for creative */
+.about-card p {
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.9;
 }
 
-.icon-tech { color: var(--icon-tech); }
-.icon-creative { color: var(--icon-creative); }
-
-/* Creative Section Visual Difference */
-.creative-alt {
-    background: linear-gradient(145deg, #0a0a0a 0%, #110011 100%);
-    border-color: #220033;
+/* Identity Header Styling */
+.about-identity {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-/* Light Mode Overrides */
-body:not(.dark-mode) .about-section {
-    --bg-main: #f5f3ff; /* Soft purple-white */
-    --card-bg: #ffffff;
-    --border-color: #ddd6fe;
-    --text-main: #1e1b4b;
+.identity-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
 }
 
-body:not(.dark-mode) .creative-alt {
-    background: linear-gradient(145deg, #ffffff 0%, #f3e8ff 100%);
-    border-color: #c084fc;
+.identity-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.8;
+    background: linear-gradient(90deg, #3b82f6, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* Responsive View */
-@media (max-width: 992px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
+/* --- DARK MODE SPECIFIC STYLING --- */
+.dark-mode .about-card {
+    background: #0a0a0a; /* Pure Black shade */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Professional Glow (Blue) */
+.dark-mode .prof-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+    transform: translateY(-5px);
+}
+
+.dark-mode .prof-card i { color: #3b82f6; }
+
+/* Creative Glow (Purple) */
+.dark-mode .creative-card:hover {
+    border-color: #a855f7;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+    transform: translateY(-5px);
+}
+
+.dark-mode .creative-card i { color: #a855f7; }
+
+/* --- LIGHT MODE SPECIFIC STYLING --- */
+body:not(.dark-mode) .about-card {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+body:not(.dark-mode) .prof-card i { color: #2563eb; }
+body:not(.dark-mode) .creative-card i { color: #7c3aed; }
+
+body:not(.dark-mode) .about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(6, 4, 8, 0.534);
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .about-main-title { font-size: 2rem; }
+    .identity-name { font-size: 1.5rem; }
+    .about-card { padding: 25px; }
 }
 
 /* ======================
