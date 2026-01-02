@@ -66,7 +66,8 @@
                 <div class="hero-btns">
                     <a href="#contact" class="grad-btn"><span>Contact Me</span></a>
 
-                    <a href="/static/documents/Shyam_Vyawahare_Resume.pdf" download="Shyam_Vyawahare_Resume_updateAug2025.pdf" target="_blank" class="grad-btn resume-btn">
+                    <a href="/static/documents/Shyam_Vyawahare_Resume.pdf"
+                        download="Shyam_Vyawahare_Resume_updateAug2025.pdf" target="_blank" class="grad-btn resume-btn">
                         <span class="desktop-text">Download Resume</span>
                     </a>
 
@@ -78,39 +79,52 @@
         <div class="scroll-indicator bounce">↓ Scroll to Explore ↓</div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
+    <section id="about" class="about-section">
         <div class="container">
-            <h2>About Me</h2>
+            <h2 class="section-title">Who Am I?</h2>
 
-            <div class="about-content">
-                <div class="about-item">
-                    <div class="about-text">
-                        <h3>Hi, I'm Shyam Vyawahare, an aspiring AI & Web Developer with a deep curiosity for software development, machine learning, and intelligent systems. I'm currently pursuing my B.Tech in Electronics & Computer Engineering, expected
-                            to graduate in 2026.</h3>
+            <div class="about-grid">
+                <div class="about-col professional">
+                    <div class="about-card">
+                        <div class="about-header">
+                            <i class="fas fa-code-branch icon-tech"></i>
+                            <h3>Technical Foundation</h3>
+                        </div>
+                        <p>Hi, I'm <strong>Shyam Vyawahare</strong>, an aspiring AI & Web Developer pursuing my B.Tech
+                            in Electronics & Computer Engineering (2026). I thrive at the intersection of machine
+                            learning and intelligent systems, building software that solves real-world problems.</p>
                     </div>
-                    <div class="about-image">
-                        <img src="/static/images/about-1.jpg" alt="Shyam Vyawahare - AI Developer" class="about-img">
+
+                    <div class="about-card">
+                        <div class="about-header">
+                            <i class="fas fa-laptop-code icon-tech"></i>
+                            <h3>Core Expertise</h3>
+                        </div>
+                        <p>My toolkit includes Full-Stack Development, Neural Networks, and Data Analysis. I am
+                            dedicated to writing clean, scalable code and continuously exploring emerging tools to turn
+                            complex logic into impactful digital experiences.</p>
                     </div>
                 </div>
 
-                <div class="about-item reverse">
-                    <div class="about-text">
-                        <h3>Alongside my technical journey, I'm also a passionate content writer and scriptwriter, with over 3 years of experience as a Hindi novelist on Pocket Novel India — where I craft imagination-driven, emotionally rich stories that
-                            connect with thousands of readers.</h3>
+                <div class="about-col creative">
+                    <div class="about-card creative-alt">
+                        <div class="about-header">
+                            <i class="fas fa-pen-nib icon-creative"></i>
+                            <h3>Literary Journey</h3>
+                        </div>
+                        <p>With over 3 years as a <strong>Hindi Novelist</strong> on Pocket Novel India, I craft
+                            emotionally rich narratives. This experience as a scriptwriter allows me to bring a unique
+                            storytelling perspective to every project I undertake.</p>
                     </div>
-                    <div class="about-image">
-                        <img src="/static/images/about-2.jpg" alt="Shyam Vyawahare - Content Writer" class="about-img">
-                    </div>
-                </div>
 
-                <div class="about-item">
-                    <div class="about-text">
-                        <h3>Whether it's building smart web applications or creating engaging narratives, I thrive at the intersection of logic and creativity. I'm continuously exploring new tools, learning by doing, and striving to turn innovative ideas
-                            into impactful experiences both in code and content.</h3>
-                    </div>
-                    <div class="about-image">
-                        <img src="/static/images/about-3.jpg" alt="Shyam Vyawahare - Creative Developer" class="about-img">
+                    <div class="about-card creative-alt">
+                        <div class="about-header">
+                            <i class="fas fa-palette icon-creative"></i>
+                            <h3>Digital Artistry</h3>
+                        </div>
+                        <p>Beyond code and words, I specialize in <strong>Digital Art, Logo Design, and Poster
+                                Creation</strong>. I combine visual aesthetics with functional design to create branding
+                            that resonates and communicates effectively.</p>
                     </div>
                 </div>
             </div>
@@ -124,28 +138,32 @@
 
             <a href="/projects/project1" class="project-card">
                 <h3>1. Morphed Image Detector</h3>
-                <p>AI & ML based project, system that detect digitally manipulated or morphed facial images to verify authenticity</p>
+                <p>AI & ML based project, system that detect digitally manipulated or morphed facial images to verify
+                    authenticity</p>
                 <div class="tech-stack">Python • OpenCV • TensorFlow</div>
                 <h5>Visit project description site</h5>
             </a>
 
             <a href="/projects/project2" class="project-card">
                 <h3>2. Bank ATM Simulator</h3>
-                <p>Java core based project, system simulates Bank ATM with all of its functionalities from creating account, setting up pin, credit & withdraw amount, get recept, etc.</p>
+                <p>Java core based project, system simulates Bank ATM with all of its functionalities from creating
+                    account, setting up pin, credit & withdraw amount, get recept, etc.</p>
                 <div class="tech-stack">Java • MySQL • Workbench</div>
                 <h5>Visit project description site</h5>
             </a>
 
             <a href="/projects/project3" class="project-card">
                 <h3>3. Restaurant Management System</h3>
-                <p>A comprehensive Django-based platform for managing restaurant operations, from menu and orders to customer relationships</p>
+                <p>A comprehensive Django-based platform for managing restaurant operations, from menu and orders to
+                    customer relationships</p>
                 <div class="tech-stack">Django • Python • PostgreSQL • Bootstrap • REST API</div>
                 <h5>Visit project description site</h5>
             </a>
 
             <a href="/projects/project4" class="project-card">
                 <h3>4. Attendance Management System</h3>
-                <p>Face recognition-based automated attendance tracking system that captures class attendance instantly and generates detailed Excel reports with percentage calculations</p>
+                <p>Face recognition-based automated attendance tracking system that captures class attendance instantly
+                    and generates detailed Excel reports with percentage calculations</p>
                 <div class="tech-stack">Python • OpenCV • Face Recognition • Tkinter • Pandas</div>
                 <h5>Visit project description site</h5>
             </a>
@@ -232,13 +250,15 @@
     <section id="cv" class="section">
         <div class="container">
             <h2>My Resume</h2>
-            <p>Want to learn more about my professional background, skills, and experience? View or download my comprehensive Resume.</p>
+            <p>Want to learn more about my professional background, skills, and experience? View or download my
+                comprehensive Resume.</p>
 
             <div class="cv-actions">
                 <a href="/static/documents/Shyam_Vyawahare_Resume.pdf" target="_blank" class="btn cv-btn view-cv">
                     <span class="btn-icon">👁️</span> View My Resume
                 </a>
-                <a href="/static/documents/Shyam_Vyawahare_Resume.pdf" download="Shyam_Vyawahare_Resume_updateAug2025.pdf" class="btn cv-btn download-cv">
+                <a href="/static/documents/Shyam_Vyawahare_Resume.pdf"
+                    download="Shyam_Vyawahare_Resume_updateAug2025.pdf" class="btn cv-btn download-cv">
                     <span class="btn-icon">📥</span> Download My Resume
 
                 </a>
@@ -257,22 +277,28 @@
                     <h3>Contact Information</h3>
                     <div class="contact-info">
                         <div class="contact-item">
-                            <span class="contact-icon"><img class="emoji-size" src="/static/images/num.jpg" alt="Phone"></span>
+                            <span class="contact-icon"><img class="emoji-size" src="/static/images/num.jpg"
+                                    alt="Phone"></span>
                             <span>+91 98603 35064</span>
                         </div>
 
                         <a class="contact-item" href="mailto:shyamvyawahare1@gmail.com" target="_blank">
-                            <span class="contact-icon"><img class="emoji-size" src="/static/images/mail.png" alt="Email"></span>
+                            <span class="contact-icon"><img class="emoji-size" src="/static/images/mail.png"
+                                    alt="Email"></span>
                             <span>shyamvyawahare1@gmail.com</span>
                         </a>
 
-                        <a class="contact-item" href="https://www.linkedin.com/in/shyam-vyawahare-9ab206327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
-                            <span class="contact-icon"><img class="emoji-size" src="/static/images/linkedin.png" alt="LinkedIn"></span>
+                        <a class="contact-item"
+                            href="https://www.linkedin.com/in/shyam-vyawahare-9ab206327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            target="_blank">
+                            <span class="contact-icon"><img class="emoji-size" src="/static/images/linkedin.png"
+                                    alt="LinkedIn"></span>
                             <span>Shyam-Vyawahare</span>
                         </a>
 
                         <a class="contact-item" href="https://github.com/shyam-vyawahare" target="_blank">
-                            <span class="contact-icon"><img class="emoji-size" src="/static/images/github.png" alt="GitHub"></span>
+                            <span class="contact-icon"><img class="emoji-size" src="/static/images/github.png"
+                                    alt="GitHub"></span>
                             <span>Shyam-Vyawahare</span>
                         </a>
                     </div>
@@ -306,12 +332,13 @@
                         </div>
 
                         <button type="submit" class="submit-btn">
-                <span class="btn-text">Send Message</span>
-                <span class="btn-loader" style="display: none;">
-                  <span class="spinner"></span> Sending...
-                </span>
-              </button>
-                        <div id="formMessage" style="display: none; margin-top: 15px; padding: 10px; border-radius: 5px;"></div>
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loader" style="display: none;">
+                                <span class="spinner"></span> Sending...
+                            </span>
+                        </button>
+                        <div id="formMessage"
+                            style="display: none; margin-top: 15px; padding: 10px; border-radius: 5px;"></div>
                     </form>
                 </div>
             </div>
