@@ -2,9 +2,10 @@ Shyam Vyawahare Portfolio Website
 
 A modern, responsive portfolio website built with HTML, CSS, and JavaScript, featuring a clean design with dark/light mode toggle and smooth animations.
 
-🚀 Live Demo
+🚀 Live Now
 
-[View Live Portfolio](https://shyam-vyawahare.vercel.app)
+View Live Portfolio here
+[shyam-vyawahare.vercel.app](https://shyam-vyawahare.vercel.app)
 
 ✨ Features
 
