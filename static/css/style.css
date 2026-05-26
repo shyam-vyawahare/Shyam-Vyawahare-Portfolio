@@ -1169,82 +1169,11 @@ body:not(.dark-mode) .about-card:hover {
    Projects Section (Specific Styling)
    ====================== */
 
-#projects {
-    background: linear-gradient(135deg, #e6f5ff 0%, #c8d3e0 50%, #c3c3e2 100%);
-    position: relative;
-    overflow: hidden;
-}
-
-#projects::before {
-    content: "";
-    position: absolute;
-    top: -50px;
-    left: -50px;
-    width: 200px;
-    height: 200px;
-    background: #4dabf7;
-    /* Brighter blue accent */
-    opacity: 0.1;
-    border-radius: 50%;
-    filter: blur(40px);
-}
-
-#projects::after {
-    content: "";
-    position: absolute;
-    bottom: -100px;
-    right: -100px;
-    width: 300px;
-    height: 300px;
-    background: #339af0;
-    /* Primary blue */
-    opacity: 0.1;
-    border-radius: 50%;
-    filter: blur(60px);
-}
-
-#projects .container {
-    position: relative;
-    z-index: 2;
-}
-
-#projects h2 {
-    font-size: 2.8rem;
-    color: #1c7ed6;
-    /* Deep blue */
-    margin-bottom: 2.5rem;
-    position: relative;
-    display: inline-block;
-}
-
-#projects h2::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background: #4dabf7;
-    /* Matching the blob color */
-    border-radius: 2px;
-}
-
-#projects h3 {
-    font-size: 1.6rem;
-    color: #228be6;
-    /* Slightly darker than title */
-    margin: 2rem 0 1rem;
-    position: relative;
-    padding-left: 30px;
-}
-
-#projects h3::before {
-    content: "◈";
-    /* Diamond symbol */
-    position: absolute;
-    left: 0;
-    color: #4dabf7;
-    font-size: 1.2rem;
+#projects .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 
@@ -1252,75 +1181,37 @@ body:not(.dark-mode) .about-card:hover {
 
 #projects .project-card {
     background: white;
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 1.5rem;
-    margin-bottom: 2rem;
     box-shadow: 0 5px 15px rgba(33, 150, 243, 0.1);
     border-left: 4px solid #4dabf7;
     transition: all 0.3s ease;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
 }
+
+
+/* Hover Effects */
 
 #projects .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(33, 150, 243, 0.15);
-}
-
-
-/* Make project card clickable while keeping styling */
-
-.project-card {
-    display: block;
-    /* Change from default inline */
-    text-decoration: none;
-    color: inherit;
-    /* Keeps text color from changing */
-}
-
-
-/* Remove any link-specific styles */
-
-.project-card:hover,
-.project-card:visited,
-.project-card:active {
-    color: inherit;
-    text-decoration: none;
-}
-
-
-/* Ensure hover effects still work */
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(33, 150, 243, 0.15);
-}
-
-
-/* Dark Mode Adjustments */
-
-.dark-mode #projects {
-    background: linear-gradient(135deg, #131212 0%, #000000 50%, #040607 100%);
-}
-
-.dark-mode #projects h2 {
-    color: #74c0fc;
-}
-
-.dark-mode #projects h2::after {
-    background: #339af0;
-}
-
-.dark-mode #projects h3 {
-    color: #a5d8ff;
-}
-
-.dark-mode #projects h3::before {
-    color: #339af0;
+    box-shadow: 0 8px 25px rgba(33, 150, 243, 0.18);
 }
 
 .dark-mode #projects .project-card {
     background: #0b0c0c;
     box-shadow: 0 5px 15px rgba(132, 216, 236, 0.3);
     border-left-color: #339af0;
+
+/* Remove link styles */
+
+.project-card:hover,
+.project-card:visited,
+.project-card:active {
+    color: inherit;
+    text-decoration: none;
 }
 
 
@@ -3168,35 +3059,13 @@ footer::before {
         order: -1;
     }
     /* Projects Section Mobile Fix */
-    #projects {
-        padding: 3rem 0;
+     #projects .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
     }
-    #projects h2 {
-        font-size: 2rem;
-        text-align: center;
-    }
-    #projects h3 {
-        font-size: 1.3rem;
-        padding-left: 20px;
-        margin: 1.5rem 0 0.8rem;
-    }
-    #projects h3::before {
-        font-size: 1rem;
-        left: 0;
-    }
-    .project-card {
+
+    #projects .project-card {
         padding: 1.2rem;
-        margin-bottom: 1.5rem;
-    }
-    .project-card h3 {
-        font-size: 1.3rem;
-    }
-    .project-card p {
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-    .tech-stack {
-        font-size: 0.9rem;
     }
     /* Contact Section Mobile Fix */
     #contact {
