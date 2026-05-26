@@ -1204,6 +1204,7 @@ body:not(.dark-mode) .about-card:hover {
     background: #0b0c0c;
     box-shadow: 0 5px 15px rgba(132, 216, 236, 0.3);
     border-left-color: #339af0;
+}
 
 /* Remove link styles */
 
@@ -3058,6 +3059,7 @@ footer::before {
     .about-item.reverse .about-image {
         order: -1;
     }
+
     /* Projects Section Mobile Fix */
      #projects .projects-grid {
         grid-template-columns: 1fr;
@@ -3067,6 +3069,7 @@ footer::before {
     #projects .project-card {
         padding: 1.2rem;
     }
+
     /* Contact Section Mobile Fix */
     #contact {
         padding: 3rem 0;
