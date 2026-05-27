@@ -1165,9 +1165,43 @@ body:not(.dark-mode) .about-card:hover {
     .about-card { padding: 25px; }
 }
 
-/* ======================
-   Projects Section (Specific Styling)
-   ====================== */
+
+/* =========================================
+   Featured Projects Section
+========================================= */
+
+/* Section Title */
+
+#projects .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+#projects h2 {
+    font-size: 2.8rem;
+    color: #1c7ed6;
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+#projects h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: #4dabf7;
+    border-radius: 2px;
+}
+
+
+/* =========================================
+   Projects Grid Layout
+========================================= */
 
 #projects .projects-grid {
     display: grid;
@@ -1177,7 +1211,9 @@ body:not(.dark-mode) .about-card:hover {
 }
 
 
-/* Project card styling */
+/* =========================================
+   Project Cards
+========================================= */
 
 #projects .project-card {
     background: white;
@@ -1185,34 +1221,53 @@ body:not(.dark-mode) .about-card:hover {
     padding: 1.5rem;
     box-shadow: 0 5px 15px rgba(33, 150, 243, 0.1);
     border-left: 4px solid #4dabf7;
-    transition: all 0.3s ease;
+
     display: block;
+    height: 100%;
+
     text-decoration: none;
     color: inherit;
-    height: 100%;
+
+    transition: all 0.3s ease;
 }
 
 
-/* Hover Effects */
+/* Hover Effect */
 
 #projects .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(33, 150, 243, 0.18);
+
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* Remove Link Styling */
+
+.project-card:visited,
+.project-card:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   Dark Mode
+========================================= */
+
+.dark-mode #projects h2 {
+    color: #74c0fc;
+}
+
+.dark-mode #projects h2::after {
+    background: #339af0;
 }
 
 .dark-mode #projects .project-card {
     background: #0b0c0c;
     box-shadow: 0 5px 15px rgba(132, 216, 236, 0.3);
     border-left-color: #339af0;
-}
-
-/* Remove link styles */
-
-.project-card:hover,
-.project-card:visited,
-.project-card:active {
-    color: inherit;
-    text-decoration: none;
 }
 
 
