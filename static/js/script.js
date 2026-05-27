@@ -182,16 +182,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // =============================================
-    // Smooth scrolling for section links
+    // Smooth scrolling only for section links
     // =============================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+
+        anchor.addEventListener('click', function (e) {
+
             const target = document.querySelector(this.getAttribute('href'));
+
+            // Only apply smooth scroll if section exists
             if (target) {
+
+                e.preventDefault();
+
                 target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                    behavior: 'smooth'
                 });
             }
         });
