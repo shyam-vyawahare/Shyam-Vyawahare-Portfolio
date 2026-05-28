@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Shyam Vyawahare</title>
+    <link rel="stylesheet" href="static/css/style.css?v=1.1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="static/images/SVfavicon.png">
+    <style>
+        .resume-hero {
+            background: linear-gradient(135deg, #e6f5ff 0%, #c8d3e0 50%, #c3c3e2 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resume-hero h1 {
+            font-size: 3rem;
+            color: #1c7ed6;
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-hero .subtext {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .resume-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .resume-content {
+            padding: 3rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .resume-section {
+            margin-bottom: 3rem;
+        }
+
+        .resume-section h2 {
+            font-size: 1.8rem;
+            color: #4dabf7;
+            border-bottom: 3px solid #4dabf7;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-chip {
+            background: #f0f9ff;
+            padding: 0.75rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            color: #1c7ed6;
+            border: 1px solid #4dabf7;
+        }
+
+        .experience-card, .project-card-resume {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #4dabf7;
+            border-radius: 5px;
+        }
+
+        .experience-card h3 {
+            font-size: 1.3rem;
+            color: #228be6;
+            margin: 0 0 0.25rem 0;
+        }
+
+        .experience-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .project-card-resume h3 {
+            font-size: 1.2rem;
+            color: #228be6;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .tech-tag {
+            background: #e7f5ff;
+            color: #1c7ed6;
+            padding: 0.25rem 0.75rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-group {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid #4dabf7;
+            border-radius: 5px;
+        }
+
+        .skill-group h3 {
+            font-size: 1.1rem;
+            color: #228be6;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-group p {
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .certification-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .certification-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+
+        .certification-list li:last-child {
+            border-bottom: none;
+        }
+
+        .award-highlight {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+            padding: 1.5rem;
+            border-left: 4px solid #ff8c00;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .award-highlight h3 {
+            color: #ff8c00;
+            margin: 0 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .award-highlight p {
+            color: #555;
+            margin: 0;
+        }
+
+        .dark-mode .resume-hero {
+            background: linear-gradient(135deg, #131212 0%, #000000 50%, #040607 100%);
+        }
+
+        .dark-mode .resume-hero h1 {
+            color: #74c0fc;
+        }
+
+        .dark-mode .resume-hero .subtext {
+            color: #c1c2c5;
+        }
+
+        .dark-mode .contact-chip {
+            background: #0a2540;
+            color: #74c0fc;
+            border-color: #4dabf7;
+        }
+
+        .dark-mode .experience-card,
+        .dark-mode .project-card-resume,
+        .dark-mode .skill-group {
+            background: #0b0c0c;
+            color: #c1c2c5;
+        }
+
+        .dark-mode .experience-card h3,
+        .dark-mode .project-card-resume h3,
+        .dark-mode .skill-group h3 {
+            color: #a5d8ff;
+        }
+
+        .dark-mode .experience-meta,
+        .dark-mode .skill-group p {
+            color: #a1a1a7;
+        }
+
+        .dark-mode .tech-tag {
+            background: #0a2540;
+            color: #74c0fc;
+        }
+
+        .dark-mode .certification-list li {
+            border-bottom-color: #222;
+            color: #a1a1a7;
+        }
+
+        .dark-mode .award-highlight {
+            background: linear-gradient(135deg, #1a0f00 0%, #2d1a00 100%);
+        }
+
+        .dark-mode .award-highlight h3 {
+            color: #ffb366;
+        }
+
+        .dark-mode .award-highlight p {
+            color: #a1a1a7;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href=".">
+                    <img src="static/images/SVfavicon.png" alt="SV logo" class="nav-logo-icon">
+                    <span class="nav-logo-text">Shyam Vyawahare</span>
+                </a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="projects/index.html" class="nav-link">Projects</a></li>
+                <li><a href="resume.html" class="nav-link">Resume</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Resume Hero Section -->
+    <section class="resume-hero">
+        <div class="container">
+            <h1>My Resume</h1>
+            <p class="subtext">Backend-focused Electronics & Computer Engineering student skilled in Python, Django, REST APIs, PostgreSQL, and AI/ML.</p>
+            <div class="resume-buttons">
+                <a href="static/documents/Shyam_Vyawahare_Resume.pdf" download="Shyam_Vyawahare_Resume_updateAug2025.pdf" class="btn cv-btn download-cv">
+                    <span class="btn-icon">⬇</span> Download Resume
+                </a>
+                <a href="static/documents/Shyam_Vyawahare_Resume.pdf" target="_blank" class="btn cv-btn view-cv">
+                    <span class="btn-icon">👁️</span> View Resume PDF
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Content -->
+    <section class="resume-content">
+        <!-- Contact & Links Section -->
+        <div class="resume-section">
+            <h2>Contact & Links</h2>
+            <div class="contact-chips">
+                <div class="contact-chip">📞 +91 98603 35064</div>
+                <div class="contact-chip">✉ shyamvyawahare1@gmail.com</div>
+                <div class="contact-chip">🔗 linkedin.com/in/shyam-vyawahare</div>
+                <div class="contact-chip">🐙 github.com/shyam-vyawahare</div>
+                <div class="contact-chip">🌐 shyam-vyawahare.vercel.app</div>
+            </div>
+        </div>
+
+        <!-- Professional Experience Section -->
+        <div class="resume-section">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-card">
+                <h3>Server Infrastructure Intern</h3>
+                <div class="experience-meta">
+                    <span><strong>Eduspark & MHT CET</strong></span>
+                    <span>Mar 2026 – Apr 2026</span>
+                    <span>Maharashtra</span>
+                </div>
+                <ul>
+                    <li>Managed mission-critical server infrastructure and database operations for MHT-CET examinations across 5+ centers in Maharashtra</li>
+                    <li>Ensured seamless, secure, and uninterrupted exam execution</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <h3>Django Developer</h3>
+                <div class="experience-meta">
+                    <span><strong>Perpex</strong></span>
+                    <span>Jul 2025 – Oct 2025</span>
+                    <span>Remote</span>
+                </div>
+                <ul>
+                    <li>Built and optimized REST APIs using Django REST Framework, improving backend efficiency for web applications</li>
+                    <li>Developed responsive UI templates and streamlined data management using Django Admin and PostgreSQL</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="resume-section">
+            <h2>Projects</h2>
+            
+            <div class="project-card-resume">
+                <h3>Bioscrap-Official-Website</h3>
+                <div class="tech-tags">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Git</span>
+                    <span class="tech-tag">GitHub</span>
+                </div>
+                <ul>
+                    <li>Built a live sustainability-focused web platform supporting end-to-end scrap collection workflows for a startup</li>
+                    <li>Optimized frontend performance, improving estimated page load efficiency by ~30%</li>
+                </ul>
+            </div>
+
+            <div class="project-card-resume">
+                <h3>Django-based Restaurant Management System</h3>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Django REST Framework</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                </div>
+                <ul>
+                    <li>Engineered a restaurant management system integrating authentication, order processing, and menu workflows</li>
+                    <li>Created scalable REST APIs using Django REST Framework for modular backend integration</li>
+                </ul>
+            </div>
+
+            <div class="project-card-resume">
+                <h3>Morphed Image Detector</h3>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">Computer Vision</span>
+                </div>
+                <ul>
+                    <li>Designed a CNN-driven facial forensics model for high-accuracy detection of morphed facial images</li>
+                    <li>Implemented TensorFlow-based real-time image analysis for identity verification workflows</li>
+                </ul>
+            </div>
+
+            <div class="project-card-resume">
+                <h3>AI Healthcare Chatbot</h3>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">LLMs</span>
+                    <span class="tech-tag">API Architecture</span>
+                </div>
+                <ul>
+                    <li>Engineered an AI healthcare chatbot using ML and LLMs for real-time symptom-based assistance</li>
+                    <li>Developed a scalable API-driven healthcare system for real-time query handling</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Technical Skills Section -->
+        <div class="resume-section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h3>Programming Languages</h3>
+                    <p>Python, Java, JavaScript, TypeScript, HTML5, CSS3</p>
+                </div>
+                <div class="skill-group">
+                    <h3>Frameworks & Technologies</h3>
+                    <p>Django, Django REST Framework, FastAPI, REST APIs</p>
+                </div>
+                <div class="skill-group">
+                    <h3>Databases</h3>
+                    <p>PostgreSQL, MySQL, MongoDB</p>
+                </div>
+                <div class="skill-group">
+                    <h3>AI/ML & Core Domains</h3>
+                    <p>Machine Learning, Deep Learning, Computer Vision, IoT, Embedded Systems</p>
+                </div>
+                <div class="skill-group">
+                    <h3>Tools, Cloud & DevOps</h3>
+                    <p>Git, GitHub, Docker, CI/CD, DevOps</p>
+                </div>
+                <div class="skill-group">
+                    <h3>Core Competencies</h3>
+                    <p>API Development, Backend Development, Responsive UI Development</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certifications Section -->
+        <div class="resume-section">
+            <h2>Certifications</h2>
+            <ul class="certification-list">
+                <li>Data Analytics Job Simulation — Forage</li>
+                <li>AI Beginners — Simplilearn</li>
+                <li>Java Assessment — LearnTube</li>
+            </ul>
+        </div>
+
+        <!-- Awards & Honors Section -->
+        <div class="resume-section">
+            <h2>Awards & Honors</h2>
+            <div class="award-highlight">
+                <h3>🏆 ByteFest2k25 Triple-Track Winner</h3>
+                <p>MBE Society's College of Engineering, Ambajogai — Jun 2025</p>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="resume-section">
+            <h2>Education</h2>
+            <div class="experience-card">
+                <h3>B.Tech — Electronics & Computer Engineering</h3>
+                <div class="experience-meta">
+                    <span><strong>MBE Society's College of Engineering, Ambajogai</strong></span>
+                    <span>Sep 2022 – Jul 2026</span>
+                </div>
+                <p><strong>Affiliation:</strong> DBATU University</p>
+                <p><strong>GPA:</strong> 8.67</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-signature">
+                <img class="ftimg" src="static/images/shname.png" alt="Shyam">
+                <img class="ftimg" src="static/images/vyname.png" alt="Vyawahare">
+            </div>
+            <div class="footer-content">
+                <p class="footer-text">&copy; 2025 Shyam Vyawahare. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="projects/index.html">Projects</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="static/js/script.js?v=1.3.0"></script>
+</body>
+
+</html>
