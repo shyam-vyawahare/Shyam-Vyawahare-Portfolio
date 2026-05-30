@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (navMenu && navMenu.classList.contains('active')) {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
-            console.log("Menu closed successfully"); // Debugging check
         }
     }
 
@@ -268,11 +267,8 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     if (!contactForm) {
-        console.error('Contact form not found!');
         return;
     }
-
-    console.log('Contact form found, attaching submit handler');
 
     contactForm.addEventListener('submit', async function(e) {
         e.preventDefault(); // Prevent page reload
@@ -316,19 +312,8 @@ document.addEventListener('DOMContentLoaded', function() {
         btnLoader.style.display = 'inline-block';
 
         try {
-            console.log('Submitting form to Web3Forms...');
-
             // Prepare form data for Web3Forms
             const formData = new FormData(this);
-
-            // Log form data for debugging
-            console.log('Form data:', {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                subject: formData.get('subject'),
-                message: formData.get('message'),
-                access_key: formData.get('access_key')
-            });
 
             // Send email using Web3Forms API
             const response = await fetch('https://api.web3forms.com/submit', {
@@ -336,13 +321,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: formData
             });
 
-            console.log('Response status:', response.status);
             const data = await response.json();
-            console.log('Response data:', data);
 
             // Success
             if (response.ok && data.success) {
-                console.log('Form submitted successfully!');
                 // Show success modal
                 window.showSuccessModal();
                 // Reset form
@@ -353,7 +335,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
         } catch (error) {
-            console.error('Web3Forms Error:', error);
             messageDiv.textContent = '❌ Sorry, there was an error sending your message: ' + error.message + '. Please try again later or contact me directly at shyamvyawahare1@gmail.com';
             messageDiv.classList.add("show", "error");
             messageDiv.style.display = "block";
@@ -371,9 +352,6 @@ window.showSuccessModal = function() {
     const modal = document.getElementById('successModal');
     if (modal) {
         modal.style.display = 'flex';
-        console.log('Success modal displayed');
-    } else {
-        console.error('Success modal element not found!');
     }
 }
 
