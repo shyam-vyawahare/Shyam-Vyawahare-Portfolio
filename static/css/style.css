@@ -496,143 +496,250 @@ a {
 }
 
 
-/* Button Styling (21st.dev style) */
-
-.hero-right h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin: 0.5rem 0;
-    line-height: 1.1;
-}
-
-.hero .tagline {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 100%;
-    /* Ensure it doesn't push width */
-}
+/* =========================
+   Hero Buttons
+   ========================= */
 
 .hero-btns {
     display: flex;
-    gap: 12px;
-    justify-content: flex-start; /* Changed from center to flex-start */
-    width: 100%;
-    margin-top: 30px;
-    padding-left: 0; /* Ensures no weird offset */
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 2rem;
 }
 
 .grad-btn {
     position: relative;
-    text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 2px; /* Border thickness */
-    border-radius: 8px; /* Slightly sharper for a professional look */
-    /* Professional Palette: Slate to Silver */
-    background: linear-gradient(90deg, #1e293b, #64748b, #1e293b);
-    background-size: 200% auto;
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    text-decoration: none;
+
+    padding: 0;
+    border-radius: 14px;
     overflow: hidden;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+
+    background: linear-gradient(
+        135deg,
+        #1f2937,
+        #334155
+    );
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,.28);
 }
 
 .grad-btn span {
-    display: block;
-    background: #0f172a; /* Deep Slate Navy */
-    color: #f8fafc;
-    padding: 12px 24px;
-    border-radius: 7px;
-    font-weight: 500;
-    font-size: 0.9rem;
-    white-space: nowrap;
-    transition: all 0.3s ease;
-}
 
-/* The Shining Effect (Keeping it Classy) */
-.grad-btn::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -150%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: rotate(30deg);
-    transition: all 0.6s ease;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.grad-btn:hover::before {
-    left: 100%;
-}
+    padding: 14px 26px;
 
-.grad-btn:hover {
-    transform: translateY(-3px);
-    background-position: right center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-}
+    font-size: .95rem;
+    font-weight: 600;
+    letter-spacing: .2px;
 
-.grad-btn:hover span {
+    color: #fff;
+
     background: transparent;
-    color: #ffffff;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
 }
 
-/* Light Mode Specific Styling */
-body:not(.dark-mode) .grad-btn span {
-    background: #b6ece7; /* Clean white inner */
-    color: #1e293b;      /* Dark slate text */
+/* Shine */
+
+.grad-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(255,255,255,.22) 50%,
+        transparent 80%
+    );
+
+    transform:translateX(-120%);
+    transition:transform .7s ease;
+
 }
 
-body:not(.dark-mode) .grad-btn {
-    /* Silver to Light Slate gradient border */
-    background: linear-gradient(90deg, #e2e8f0, #94a3b8, #bdd4f3);
-    background-size: 200% auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.445);
+.grad-btn:hover::before{
+
+    transform:translateX(120%);
+
 }
 
-body:not(.dark-mode) .grad-btn:hover span {
-    background: transparent;
-    color: #000000;
+.grad-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.35);
+
 }
 
-body:not(.dark-mode) .grad-btn:hover {
-    box-shadow: 0 10px 20px rgba(30, 41, 59, 0.15);
+.grad-btn:active{
+
+    transform:translateY(-1px) scale(.98);
+
 }
 
-/* --- RESPONSIVE FIXES --- */
+/* =========================
+   Light Mode
+   ========================= */
+
+body:not(.dark-mode) .grad-btn{
+
+    background:linear-gradient(
+        135deg,
+        #eef2ff,
+        #c7d2fe
+    );
+
+    box-shadow:
+        0 10px 24px rgba(59,130,246,.18);
+
+}
+
+body:not(.dark-mode) .grad-btn span{
+
+    color:#111827;
+
+}
+
+body:not(.dark-mode) .grad-btn:hover{
+
+    background:linear-gradient(
+        135deg,
+        #dbeafe,
+        #bfdbfe
+    );
+
+    box-shadow:
+        0 18px 38px rgba(37,99,235,.22);
+
+}
+
+/* =========================
+   Dark Mode
+   ========================= */
+
+.dark-mode .grad-btn{
+
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b
+    );
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,.45);
+
+}
+
+.dark-mode .grad-btn:hover{
+
+    background:linear-gradient(
+        135deg,
+        #111827,
+        #334155
+    );
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.65);
+
+}
+
+/* =========================
+   "Buttons" RESPONSIVENESS
+   ========================= */
 
 @media (max-width: 768px) {
+
     .hero-btns {
-        gap: 8px;
-        padding: 0 10px;
         justify-content: center;
+        gap: 0.9rem;
+        width: 100%;
+        margin-top: 2rem;
+        padding: 0;
+    }
+
+    .grad-btn {
+        flex: 1;
+        min-width: 150px;
+        max-width: 190px;
     }
 
     .grad-btn span {
-        padding: 10px 12px;
-        font-size: 0.8rem;
+        padding: 13px 18px;
+        font-size: 0.9rem;
+        width: 100%;
     }
 
-    /* Logic to shorten the Resume Button Text */
-    .resume-btn .btn-text::before {
-        content: "⬇ "; /* Simple Arrow */
-    }
-    
+    /* Resume Button Short Text */
     .resume-btn .btn-text {
-        font-size: 0px; /* Hide original text */
+        font-size: 0;
     }
 
-    .resume-btn .btn-text::after {
-        content: "Resume"; /* New shorter text */
-        font-size: 0.8rem; /* Show new text */
+    .resume-btn .btn-text::before {
+        content: "⬇ Resume";
+        font-size: 0.9rem;
+        font-weight: 600;
     }
 }
 
-/* Dark Mode Adjustment (Ensuring Pure Black/Classy look) */
+@media (max-width: 480px) {
+
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.85rem;
+    }
+
+    .grad-btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .grad-btn span {
+        padding: 14px 22px;
+        font-size: 0.95rem;
+    }
+
+    .resume-btn .btn-text::before {
+        content: "⬇ Resume";
+        font-size: 0.95rem;
+    }
+}
+
+/*    Btns Dark Mode
+   ========================= */
+
 .dark-mode .grad-btn span {
-    background: #000000;
+    background: transparent;
+    color: #f8fafc;
 }
 
+body:not(.dark-mode) .grad-btn span {
+    color: #111827;
+}
 
-/* Bouncing Scroll Indicator */
+/* Bouncing Scroll Indicator
+   ========================= */
 
 .bounce {
     animation: bounce 2s infinite;
