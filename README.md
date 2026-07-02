@@ -33,13 +33,13 @@ portfolio-website/
 ├── static/
 │   ├── css/
 │   │   └── style.css          # Main stylesheet
+|   |   └── projects.css       # Stylesheet for project pages
 │   ├── js/
 │   │   └── script.js          # JavaScript functionality
 │   ├── images/                # All images assets
 │   └── documents/
 │       └── resume.pdf         # Your CV/Resume
-├── templates/
-│   └── index.html            # Main HTML file
+├── index.html            # Main HTML file
 ├── projects/                 # Project detail pages
 ├── app.py                   # Flask backend
 ├── requirements.txt         # Python dependencies
