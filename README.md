@@ -32,19 +32,20 @@ View Live Portfolio here
 portfolio-website/
 ├── static/
 │   ├── css/
-│   │   └── style.css          # Main stylesheet
-|   |   └── projects.css       # Stylesheet for project pages
+│   │   └── style.css        # Main stylesheet
+|   |   └── projects.css      # Stylesheet for project pages
 │   ├── js/
-│   │   └── script.js          # JavaScript functionality
-│   ├── images/                # All images assets
+│   │   └── script.js        # JavaScript functionality
+│   ├── images/              # All images assets
 │   └── documents/
-│       └── resume.pdf         # Your CV/Resume
-├── index.html            # Main HTML file
-├── projects/                 # Project detail pages
+│       └── resume.pdf       # Your CV/Resume
+├── index.html               # Main HTML file
+├── resume.html              # Main HTML for resume page
+├── projects/                # Project detail pages
 ├── app.py                   # Flask backend
 ├── requirements.txt         # Python dependencies
-├── .env.example            # Environment variables template
-└── README.md               # This file
+├── .env.example             # Environment variables template
+└── README.md                # This file
 ```
 
 🚀 Installation & Setup
