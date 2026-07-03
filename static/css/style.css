@@ -1536,6 +1536,71 @@ body:not(.dark-mode) .about-card:hover {
     );
 }
 
+/* =========================================
+   Light Mode Overrides for Projects Section
+========================================= */
+
+body:not(.dark-mode) #projects {
+    background: linear-gradient(
+        135deg,
+        #f8faff 0%,
+        #eef4ff 40%,
+        #f4efff 75%,
+        #ffffff 100%
+    );
+}
+
+body:not(.dark-mode) #projects .project-card {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.96),
+        rgba(245, 247, 255, 0.96)
+    );
+
+    border: 1px solid rgba(99, 102, 241, 0.18);
+
+    box-shadow:
+        0 10px 25px rgba(99, 102, 241, 0.08),
+        0 18px 40px rgba(0, 0, 0, 0.06);
+}
+
+body:not(.dark-mode) #projects .project-card::before {
+    background: linear-gradient(
+        90deg,
+        #6366f1,
+        #8b5cf6,
+        #6366f1
+    );
+}
+
+body:not(.dark-mode) #projects .project-card:hover {
+    border-color: rgba(99, 102, 241, 0.35);
+
+    box-shadow:
+        0 15px 35px rgba(99, 102, 241, 0.15),
+        0 20px 45px rgba(0, 0, 0, 0.10);
+}
+
+body:not(.dark-mode) #projects .project-card h3 {
+    color: #1e293b;
+}
+
+body:not(.dark-mode) #projects .project-card p {
+    color: #475569;
+}
+
+body:not(.dark-mode) #projects .tech-stack {
+    color: #6d28d9;
+}
+
+body:not(.dark-mode) #projects .project-card h5 {
+    color: #334155;
+}
+
+body:not(.dark-mode) #projects .project-card:hover h5 {
+    color: #6366f1;
+}
+
 /* =========================
    Skills Section
    ========================= */
