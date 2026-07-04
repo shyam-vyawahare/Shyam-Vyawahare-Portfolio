@@ -281,20 +281,23 @@ a {
 
 
 /* ======================
-   Updated Hero Section
+        Hero Section
    ====================== */
 
 .hero {
     min-height: 100vh;
-    /* Changed from height: 100vh */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: 100px 2rem 60px;
-    /* Top padding (100px) clears the Navbar */
-    background: linear-gradient(45deg, #96e9fd 0%, #ffffff 50%, #5e3877 100%);
+    padding: 100px 2rem 60px;   /* Top padding (100px) clears the Navbar */
+    background: linear-gradient(
+    135deg,
+    #f8fafc 0%,
+    #edf4ff 35%,
+    #eef2ff 70%,
+    #ffffff 100% );
     background-size: 400% 400%;
     animation: gradientBG 10s ease infinite;
 }
