@@ -284,23 +284,22 @@ a {
         Hero Section
    ====================== */
 
-.hero {
-    height: 100vh;
+hero {
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     position: relative;
     overflow: hidden;
-    padding: 2rem;
-    padding-top: 70px;
-    background: linear-gradient( 45deg, #96e9fd 0%, /* warm sunrise */
-    #ffffff 50%, /* soft sky teal */
-    #5e3877 100%/* gentle daylight yellow */
-    );
-    background-size: 220% 220%;
+    padding: 100px 2rem 60px;   /* Top padding (100px) clears the Navbar */
+    background: linear-gradient(
+    135deg,
+    #f8fafc 0%,
+    #edf4ff 35%,
+    #eef2ff 70%,
+    #ffffff 100% );
+    background-size: 400% 400%;
     animation: gradientBG 10s ease infinite;
-    color: #000;
 }
 
 .hero-layout {
