@@ -3200,17 +3200,18 @@ footer::before {
         min-height: 100vh;
     }
     .hero::before {
-        content: "";
-        position: absolute;
-        inset: -20%;
-        pointer-events: none;
-        background: linear-gradient(45deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.35));
-        background-size: 200% 200%;
-        animation: gradientBG 18s linear infinite;
-        will-change: transform, background-position;
-        transform: translateZ(0);
-        opacity: 0.55;
-        z-index: -1;
+    content: "";
+    position: absolute;
+    inset: -10%;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle at 18% 25%, rgba(96, 165, 250, 0.20), transparent 55%),
+        radial-gradient(circle at 82% 18%, rgba(196, 181, 253, 0.20), transparent 55%),
+        radial-gradient(circle at 55% 82%, rgba(191, 219, 254, 0.18), transparent 55%);
+    opacity: 0.55;
+    background-size: 200% 200%;
+    animation: gradientBG 18s ease infinite;
+    z-index: -1;
     }
     .hero-layout {
         flex-direction: column;
