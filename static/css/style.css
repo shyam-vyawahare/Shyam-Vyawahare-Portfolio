@@ -3124,34 +3124,43 @@ footer::before {
     .hero-btns {
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         margin-top: 16px;
         width: 100%;
         padding: 0;
     }
 
     .hero-btns .grad-btn,
-    .hero .btn,
-    .hero a.btn,
-    .hero-buttons a,
-    .hero-buttons .btn {
+    .hero-btns a,
+    .hero-btns .btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        flex: 0 1 auto;
         width: auto;
         min-width: unset;
-        padding: 8px 18px;
-        font-size: 13px;
+        max-width: none;
+        padding: 8px 14px;
+        font-size: 12px;
+        white-space: nowrap;
         border-radius: 50px;
-        flex: 0 0 auto;
     }
 
     .hero-btns .grad-btn span {
         padding: 0;
-        font-size: 13px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .resume-btn .btn-text {
+        font-size: 12px;
+    }
+
+    .resume-btn .btn-text::before {
+        content: "";
     }
 
     .hero .tagline {
@@ -3265,16 +3274,16 @@ footer::before {
     .footer-links {
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
-        gap: 8px 16px;
+        gap: 4px 10px;
         margin-top: 12px;
     }
 
     .footer-links a {
-        font-size: 13px;
-        padding: 4px 8px;
+        font-size: 10px;
+        padding: 2px 4px;
         white-space: nowrap;
     }
 
@@ -3307,13 +3316,24 @@ footer::before {
     }
 
     .hero-btns {
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
     }
 
     .grad-btn {
-        flex-basis: auto;
-        width: 100%;
+        flex: 0 1 auto;
+        width: auto;
+        max-width: none;
+        padding: 7px 12px;
+        font-size: 11px;
+    }
+
+    .hero-btns .grad-btn span {
+        font-size: 11px;
+        padding: 0;
     }
 
     .hero-right h1 {
@@ -3344,8 +3364,16 @@ footer::before {
     }
 
     .footer-links {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
         align-items: center;
+        gap: 4px 8px;
+    }
+
+    .footer-links a {
+        font-size: 10px;
+        padding: 2px 4px;
     }
 }
 
