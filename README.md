@@ -1,4 +1,4 @@
-Shyam Vyawahare Portfolio Website
+# Shyam Vyawahare Portfolio Website
 
 A modern, responsive portfolio website built with HTML, CSS, and JavaScript, featuring a clean design with dark/light mode toggle and smooth animations.
 
@@ -33,7 +33,7 @@ portfolio-website/
 ├── static/
 │   ├── css/
 │   │   └── style.css        # Main stylesheet
-|   |   └── projects.css      # Stylesheet for project pages
+│   │   └── projects.css      # Stylesheet for project pages
 │   ├── js/
 │   │   └── script.js        # JavaScript functionality
 │   ├── images/              # All images assets
