@@ -1,0 +1,666 @@
+/* =========================
+   Hero Buttons
+   ========================= */
+
+.hero-btns {
+    display: flex;
+    gap: 0.95rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.grad-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0;
+    border-radius: 999px;
+    overflow: hidden;
+    min-width: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    background: linear-gradient(135deg, #1f2937, #334155);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+
+.grad-btn span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    color: #fff;
+    background: transparent;
+    transition: color 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+}
+
+.grad-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.22) 50%, transparent 80%);
+    transform: translateX(-120%);
+    transition: transform 0.7s ease;
+}
+
+.grad-btn:hover::before {
+    transform: translateX(120%);
+}
+
+.grad-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.grad-btn:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* =========================
+   Light Mode
+   ========================= */
+
+body:not(.dark-mode) .grad-btn {
+    background: linear-gradient(135deg, #eef2ff, #c7d2fe);
+    box-shadow: 0 10px 24px rgba(59, 130, 246, 0.18);
+}
+
+body:not(.dark-mode) .grad-btn span {
+    color: #111827;
+}
+
+body:not(.dark-mode) .grad-btn:hover {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    box-shadow: 0 18px 38px rgba(37, 99, 235, 0.22);
+}
+
+/* =========================
+   Dark Mode
+   ========================= */
+
+.dark-mode .grad-btn {
+
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b
+    );
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,.45);
+
+}
+
+.dark-mode .grad-btn:hover{
+
+    background:linear-gradient(
+        135deg,
+        #111827,
+        #334155
+    );
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.65);
+
+}
+
+/* =========================
+   "Buttons" RESPONSIVENESS
+   ========================= */
+
+
+
+
+
+/*    Btns Dark Mode
+   ========================= */
+
+.dark-mode .grad-btn span {
+    background: transparent;
+    color: #f8fafc;
+}
+
+body:not(.dark-mode) .grad-btn span {
+    color: #111827;
+}
+
+/* Bouncing Scroll Indicator
+   ========================= */
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: -10%;
+    pointer-events: none;
+    background-image: radial-gradient(circle at 15% 20%, rgba(143, 182, 255, 0.35), transparent 55%), /* warm sun orb */
+    radial-gradient(circle at 80% 15%, #2b4d4d4d, transparent 55%), /* sky teal */
+    radial-gradient(circle at 60% 85%, rgba(248, 193, 255, 0.35), transparent 55%);
+    /* soft glow */
+    opacity: 0.65;
+    animation: gradientBG 18s ease infinite;
+}
+
+.hero-particle {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+    animation: float 14s infinite linear;
+}
+
+.hero-particle {
+    animation: float 14s infinite linear, shimmer 6s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer {
+    from {
+        opacity: 0.06;
+    }
+    to {
+        opacity: 0.14;
+    }
+}
+
+.hero h1 {
+    font-display: swap;
+    will-change: transform;
+    animation: none !important;
+    /* Disable animation first */
+    opacity: 1 !important;
+    animation-delay: 0.5s;
+}
+
+
+/* Re-enable animation after fonts load */
+
+.fonts-loaded .hero h1 {
+    animation: fadeInDown 1s ease !important;
+}
+
+
+/* To Create inline emoji/logo of img */
+
+.emoji-size {
+    height: 30px;
+    width: 30px;
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+
+/* Name Styling */
+
+h1 {
+    position: relative;
+    /* Needed for absolute positioning of decor */
+    display: inline-block;
+    /* Ensures proper spacing */
+}
+
+.name-part {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.name-decor {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 40px;
+    width: auto;
+    z-index: 100;
+    /* force above title */
+    pointer-events: none;
+    /* ensure it doesn't block clicks */
+}
+
+@font-face {
+    font-family: 'Poppins-fallback';
+    size-adjust: 105%;
+    ascent-override: 90%;
+    src: local('Arial');
+}
+
+.hero h1 {
+    font-family: 'Poppins', 'Poppins-fallback', sans-serif;
+    opacity: 1 !important;
+}
+
+.hero .tagline {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    animation: fadeInUp 1s ease 0.3s both;
+    font-weight: 400;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: inherit;
+    /* Inherits from .hero */
+}
+
+
+/* Decorative Elements */
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 0%, transparent 70%);
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: -10%;
+    background-image: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.16), transparent 55%), radial-gradient(circle at 80% 10%, rgba(251, 113, 133, 0.18), transparent 55%), radial-gradient(circle at 65% 80%, rgba(94, 234, 212, 0.18), transparent 55%);
+    mix-blend-mode: screen;
+    opacity: 0.85;
+    pointer-events: none;
+    animation: sparkleShift 18s ease-in-out infinite alternate;
+}
+
+
+/* ======================
+   Dark Mode Overrides
+   ====================== */
+
+.dark-mode .hero {
+    color: #eaeaf0;
+    background: linear-gradient( 135deg, #291528 0%, #010002 35%, #17181b 70%, #232024 100%);
+    background-size: 200% 200%;
+    animation: gradientBG 12s ease infinite;
+}
+
+.dark-mode .hero::after {
+    background-image: radial-gradient(circle at 15% 20%, rgba(28, 20, 48, 0.35), transparent 55%), /* violet nebula */
+    radial-gradient(circle at 80% 15%, rgba(0, 0, 0, 0.3), transparent 55%), /* cosmic blue */
+    radial-gradient(circle at 60% 85%, rgba(23, 0, 26, 0.28), transparent 55%);
+    /* aurora teal */
+    opacity: 0.55;
+    animation: gradientBG 20s ease infinite;
+}
+
+.dark-mode .hero-particle {
+    background: rgba(255, 255, 255, 0.18);
+    /* starlight */
+}
+
+.dark-mode .hero-particle {
+    background: rgba(255, 255, 255, 0.14);
+    /* faint starlight */
+    animation: twinkle 6s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.08;
+    }
+    to {
+        opacity: 0.18;
+    }
+}
+
+
+/* ======================
+         Animations
+   ====================== */
+
+@keyframes sparkleShift {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(-2%, 1%, 0);
+    }
+    100% {
+        transform: translate3d(2%, -1%, 0);
+    }
+}
+
+
+/* Removed pulse keyframes */
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* Animations */
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* Removed duplicate pulse keyframes */
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    opacity: 0.7;
+    color: black;
+}
+
+.dark-mode .scroll-indicator {
+    color: whitesmoke;
+}
+
+
+/* ======================
+   Greeting Styling
+   ====================== */
+
+.greeting {
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.8rem;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDownGreeting 0.8s ease-out 0.2s forwards;
+    text-align: center;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+}
+
+.greeting::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    opacity: 0.7;
+}
+
+
+/* Dark mode adjustment */
+
+.dark-mode .greeting {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* Greeting animation - appears before name */
+
+@keyframes fadeInDownGreeting {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+/* ======================
+   Buttons
+   ====================== */
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.btn:hover {
+    background: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+}
+
+
+
+
+/* Success Modal Styles */
+
+.modal {
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.modal-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: #28a745;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+    animation: scaleIn 0.3s ease 0.2s both;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.modal-content h3 {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.modal-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(41, 128, 185, 0.3);
+}
+
+.dark-mode .modal-content {
+    background-color: #2b3035;
+}
+
+.dark-mode .modal-content h3 {
+    color: var(--text-light);
+}
+
+.dark-mode .modal-content p {
+    color: #e9ecef;
+}
+
+.dark-mode .modal-close {
+    color: #ccc;
+}
+
+.dark-mode .modal-close:hover {
+    color: #fff;
+}
+
+.dark-mode .submit-btn {
+    background: var(--accent-color);
+}
+
+.dark-mode .submit-btn:hover {
+    background: #e63946;
+    /* Slightly brighter red for hover */
+}
+
+
+/* Message send Pop up */
+
+#formMessage {
+    display: none;
+    margin-top: 15px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.3s ease-in-out;
+}
+
+#formMessage.show {
+    display: block;
+    opacity: 1;
+}
+
+#formMessage.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-left: 5px solid #28a745;
+}
+
+#formMessage.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 5px solid #dc3545;
+}
