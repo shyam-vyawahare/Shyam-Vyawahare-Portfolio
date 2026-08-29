@@ -9,24 +9,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="static/images/SVfavicon.png">
     <style>
+        :root {
+            --resume-bg: #0d0d0d;
+            --resume-bg-soft: #180d0d;
+            --resume-panel: rgba(30, 18, 18, 0.88);
+            --resume-border: rgba(179, 0, 0, 0.28);
+            --resume-text: #f6efef;
+            --resume-muted: #d8c6c6;
+            --resume-accent: #b30000;
+            --resume-accent-soft: #ff5a5a;
+            --resume-tag-bg: rgba(179, 0, 0, 0.09);
+        }
+
+        body {
+            background: radial-gradient(circle at top left, rgba(179, 0, 0, 0.18), transparent 25%), var(--resume-bg);
+            color: var(--resume-text);
+        }
+
         .resume-hero {
-            background: linear-gradient(135deg, #e6f5ff 0%, #c8d3e0 50%, #c3c3e2 100%);
+            background: linear-gradient(135deg, #120d0d 0%, #1b0d0d 35%, #230d0d 100%);
+            border-bottom: 1px solid var(--resume-border);
             padding: 4rem 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
+        .resume-hero::before {
+            content: "";
+            position: absolute;
+            inset: auto auto -80px -80px;
+            width: 240px;
+            height: 240px;
+            background: rgba(179, 0, 0, 0.2);
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
         .resume-hero h1 {
             font-size: 3rem;
-            color: #1c7ed6;
+            color: #fff2f2;
             margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .resume-hero .subtext {
             font-size: 1.1rem;
-            color: #333;
+            color: var(--resume-muted);
             margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .resume-buttons {
@@ -34,6 +67,8 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
         .resume-content {
@@ -48,8 +83,8 @@
 
         .resume-section h2 {
             font-size: 1.8rem;
-            color: #4dabf7;
-            border-bottom: 3px solid #4dabf7;
+            color: #f8dada;
+            border-bottom: 3px solid var(--resume-accent);
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
         }
@@ -62,25 +97,28 @@
         }
 
         .contact-chip {
-            background: #f0f9ff;
+            background: rgba(179, 0, 0, 0.06);
             padding: 0.75rem 1.25rem;
             border-radius: 25px;
             font-size: 0.95rem;
-            color: #1c7ed6;
-            border: 1px solid #4dabf7;
+            color: #ffd9d9;
+            border: 1px solid rgba(179, 0, 0, 0.28);
+            box-shadow: 0 0 0 1px rgba(179, 0, 0, 0.08);
         }
 
         .experience-card, .project-card-resume {
-            background: #f8f9fa;
+            background: var(--resume-panel);
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            border-left: 4px solid #4dabf7;
-            border-radius: 5px;
+            border-left: 4px solid var(--resume-accent);
+            border-radius: 12px;
+            border: 1px solid var(--resume-border);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
         }
 
         .experience-card h3 {
             font-size: 1.3rem;
-            color: #228be6;
+            color: #ffb3b3;
             margin: 0 0 0.25rem 0;
         }
 
@@ -89,12 +127,14 @@
             justify-content: space-between;
             margin-bottom: 1rem;
             font-size: 0.95rem;
-            color: #666;
+            color: var(--resume-muted);
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .project-card-resume h3 {
             font-size: 1.2rem;
-            color: #228be6;
+            color: #ffb3b3;
             margin: 0 0 0.5rem 0;
         }
 
@@ -106,11 +146,12 @@
         }
 
         .tech-tag {
-            background: #e7f5ff;
-            color: #1c7ed6;
+            background: var(--resume-tag-bg);
+            color: #ffd9d9;
             padding: 0.25rem 0.75rem;
-            border-radius: 3px;
+            border-radius: 999px;
             font-size: 0.85rem;
+            border: 1px solid rgba(179, 0, 0, 0.18);
         }
 
         .skills-grid {
@@ -121,20 +162,21 @@
         }
 
         .skill-group {
-            background: #f8f9fa;
+            background: var(--resume-panel);
             padding: 1.5rem;
-            border-left: 4px solid #4dabf7;
-            border-radius: 5px;
+            border-left: 4px solid var(--resume-accent);
+            border-radius: 12px;
+            border: 1px solid var(--resume-border);
         }
 
         .skill-group h3 {
             font-size: 1.1rem;
-            color: #228be6;
+            color: #ffb3b3;
             margin-bottom: 0.75rem;
         }
 
         .skill-group p {
-            color: #555;
+            color: var(--resume-muted);
             line-height: 1.6;
             margin: 0;
         }
@@ -147,8 +189,8 @@
 
         .certification-list li {
             padding: 0.75rem 0;
-            border-bottom: 1px solid #eee;
-            color: #555;
+            border-bottom: 1px solid rgba(179, 0, 0, 0.18);
+            color: var(--resume-muted);
         }
 
         .certification-list li:last-child {
@@ -156,80 +198,23 @@
         }
 
         .award-highlight {
-            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+            background: linear-gradient(135deg, rgba(179, 0, 0, 0.08), rgba(255, 90, 90, 0.06));
             padding: 1.5rem;
-            border-left: 4px solid #ff8c00;
-            border-radius: 5px;
+            border-left: 4px solid var(--resume-accent-soft);
+            border-radius: 12px;
+            border: 1px solid rgba(179, 0, 0, 0.2);
             margin-bottom: 1.5rem;
         }
 
         .award-highlight h3 {
-            color: #ff8c00;
+            color: #ffb3b3;
             margin: 0 0 0.5rem 0;
             font-size: 1.2rem;
         }
 
         .award-highlight p {
-            color: #555;
+            color: var(--resume-muted);
             margin: 0;
-        }
-
-        .dark-mode .resume-hero {
-            background: linear-gradient(135deg, #131212 0%, #000000 50%, #040607 100%);
-        }
-
-        .dark-mode .resume-hero h1 {
-            color: #74c0fc;
-        }
-
-        .dark-mode .resume-hero .subtext {
-            color: #c1c2c5;
-        }
-
-        .dark-mode .contact-chip {
-            background: #0a2540;
-            color: #74c0fc;
-            border-color: #4dabf7;
-        }
-
-        .dark-mode .experience-card,
-        .dark-mode .project-card-resume,
-        .dark-mode .skill-group {
-            background: #0b0c0c;
-            color: #c1c2c5;
-        }
-
-        .dark-mode .experience-card h3,
-        .dark-mode .project-card-resume h3,
-        .dark-mode .skill-group h3 {
-            color: #a5d8ff;
-        }
-
-        .dark-mode .experience-meta,
-        .dark-mode .skill-group p {
-            color: #a1a1a7;
-        }
-
-        .dark-mode .tech-tag {
-            background: #0a2540;
-            color: #74c0fc;
-        }
-
-        .dark-mode .certification-list li {
-            border-bottom-color: #222;
-            color: #a1a1a7;
-        }
-
-        .dark-mode .award-highlight {
-            background: linear-gradient(135deg, #1a0f00 0%, #2d1a00 100%);
-        }
-
-        .dark-mode .award-highlight h3 {
-            color: #ffb366;
-        }
-
-        .dark-mode .award-highlight p {
-            color: #a1a1a7;
         }
     </style>
 </head>

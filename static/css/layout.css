@@ -7,25 +7,26 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.24);
+    background: rgba(18, 18, 18, 0.78);
+    border-bottom: 1px solid var(--border-red);
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.18);
     z-index: 1000;
     transition: all 0.3s ease;
 }
 
 .navbar.scrolled {
-    background: rgba(231, 213, 213, 0.342);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+    background: rgba(15, 15, 15, 0.94);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.28);
 }
 
 .dark-mode .navbar {
-    background: rgba(18, 18, 18, 0.575);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    background: rgba(18, 18, 18, 0.8);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
 }
 
 .dark-mode .navbar.scrolled {
-    background: rgba(18, 18, 18, 0.856);
+    background: rgba(18, 18, 18, 0.94);
 }
 
 .nav-container {
@@ -184,7 +185,8 @@ a {
    ====================== */
 
 footer {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    background: linear-gradient(135deg, #120d0d 0%, #1a0d0d 35%, #220d0d 100%);
+    border-top: 1px solid var(--border-red);
     color: var(--text-light);
     padding: 3rem 0 2rem;
     position: relative;
