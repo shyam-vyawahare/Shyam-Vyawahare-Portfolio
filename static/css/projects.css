@@ -71,6 +71,19 @@ html, body {
             margin: 0 auto;
         }
 
+        body:not(.dark-mode) .projects-hero {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.08) 0%, rgba(179, 0, 0, 0.12) 32%, rgba(255, 255, 255, 0.98) 100%);
+            border-bottom: 1px solid rgba(139, 0, 0, 0.12);
+        }
+
+        body:not(.dark-mode) .projects-hero h1 {
+            color: #1b1b1b;
+        }
+
+        body:not(.dark-mode) .projects-hero p {
+            color: #3e3e3e;
+        }
+
         .dark-mode .projects-hero {
             background: linear-gradient(135deg, #120d0d 0%, #1a0d0d 35%, #230d0d 100%);
         }
@@ -148,6 +161,29 @@ html, body {
             color: #ffb0b0;
             font-weight: 600;
             cursor: pointer;
+        }
+
+        body:not(.dark-mode) .project-card {
+            background: rgba(255, 255, 255, 0.96);
+            border-left-color: var(--accent-red);
+            box-shadow: 0 12px 26px rgba(20, 20, 20, 0.06), 0 0 0 1px rgba(179, 0, 0, 0.05);
+            color: #1b1b1b;
+        }
+
+        body:not(.dark-mode) .project-card h3,
+        body:not(.dark-mode) .project-card p,
+        body:not(.dark-mode) .project-card h5 {
+            color: #1b1b1b;
+        }
+
+        body:not(.dark-mode) .project-card p {
+            opacity: 0.85;
+        }
+
+        body:not(.dark-mode) .project-card .tech-stack {
+            background: rgba(179, 0, 0, 0.04);
+            color: #8b0000;
+            border: 1px solid rgba(179, 0, 0, 0.1);
         }
 
         .dark-mode .project-card {

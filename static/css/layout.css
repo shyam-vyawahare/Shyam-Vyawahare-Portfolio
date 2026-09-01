@@ -25,6 +25,17 @@
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
 }
 
+body:not(.dark-mode) .navbar {
+    background: rgba(255, 255, 255, 0.82);
+    border-bottom: 1px solid rgba(139, 0, 0, 0.12);
+    box-shadow: 0 2px 18px rgba(17, 17, 17, 0.06);
+}
+
+body:not(.dark-mode) .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 4px 26px rgba(17, 17, 17, 0.08);
+}
+
 .dark-mode .navbar.scrolled {
     background: rgba(18, 18, 18, 0.94);
 }
@@ -114,8 +125,21 @@
     color: var(--text-light);
 }
 
+body:not(.dark-mode) .nav-link {
+    color: #1f1f1f;
+}
+
+body:not(.dark-mode) .nav-link:hover,
+body:not(.dark-mode) .nav-link.active {
+    color: #8b0000;
+}
+
 .dark-mode .nav-link:hover {
     color: #74c0fc;
+}
+
+body:not(.dark-mode) .nav-toggle span {
+    background: #1f1f1f;
 }
 
 .nav-toggle {
@@ -191,6 +215,21 @@ footer {
     padding: 3rem 0 2rem;
     position: relative;
     overflow: hidden;
+}
+
+body:not(.dark-mode) footer {
+    background: linear-gradient(135deg, #fffdfd 0%, #f7efef 35%, #f4ebeb 100%);
+    border-top: 1px solid rgba(139, 0, 0, 0.12);
+    color: #1b1b1b;
+}
+
+body:not(.dark-mode) .footer-text,
+body:not(.dark-mode) .footer-links a {
+    color: #3d3d3d;
+}
+
+body:not(.dark-mode) .footer-links a:hover {
+    color: #8b0000;
 }
 
 footer::before {

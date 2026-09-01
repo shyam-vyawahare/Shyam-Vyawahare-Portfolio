@@ -68,17 +68,18 @@
    ========================= */
 
 body:not(.dark-mode) .grad-btn {
-    background: linear-gradient(135deg, #eef2ff, #c7d2fe);
-    box-shadow: 0 10px 24px rgba(59, 130, 246, 0.18);
+    background: linear-gradient(135deg, rgba(179, 0, 0, 0.08), rgba(179, 0, 0, 0.16));
+    border: 1px solid rgba(139, 0, 0, 0.18);
+    box-shadow: 0 10px 22px rgba(139, 0, 0, 0.12);
 }
 
 body:not(.dark-mode) .grad-btn span {
-    color: #111827;
+    color: #111111;
 }
 
 body:not(.dark-mode) .grad-btn:hover {
-    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-    box-shadow: 0 18px 38px rgba(37, 99, 235, 0.22);
+    background: linear-gradient(135deg, rgba(179, 0, 0, 0.12), rgba(179, 0, 0, 0.18));
+    box-shadow: 0 18px 38px rgba(139, 0, 0, 0.2);
 }
 
 /* =========================
@@ -304,6 +305,23 @@ h1 {
     animation: gradientBG 12s ease infinite;
 }
 
+body:not(.dark-mode) .hero {
+    color: #1b1b1b;
+    background:
+        radial-gradient(circle at top left, rgba(179, 0, 0, 0.12), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(179, 0, 0, 0.09), transparent 22%),
+        linear-gradient(135deg, #ffffff 0%, #f7f3f3 28%, #f3ebeb 58%, #f8f8f8 100%);
+    border-bottom: 1px solid rgba(179, 0, 0, 0.18);
+}
+
+body:not(.dark-mode) .hero::after {
+    background-image:
+        radial-gradient(circle at 15% 20%, rgba(179, 0, 0, 0.14), transparent 52%),
+        radial-gradient(circle at 80% 12%, rgba(179, 0, 0, 0.08), transparent 48%),
+        radial-gradient(circle at 62% 82%, rgba(179, 0, 0, 0.08), transparent 46%);
+    opacity: 0.8;
+}
+
 .dark-mode .hero::after {
     background-image: radial-gradient(circle at 15% 20%, rgba(28, 20, 48, 0.35), transparent 55%), /* violet nebula */
     radial-gradient(circle at 80% 15%, rgba(0, 0, 0, 0.3), transparent 55%), /* cosmic blue */
@@ -438,8 +456,21 @@ h1 {
 
 /* Dark mode adjustment */
 
+body:not(.dark-mode) .greeting {
+    color: rgba(30, 22, 22, 0.9);
+}
+
+body:not(.dark-mode) .greeting::after {
+    background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.5), transparent);
+}
+
 .dark-mode .greeting {
     color: rgba(255, 255, 255, 0.9);
+}
+
+body:not(.dark-mode) #dynamic-text {
+    color: var(--accent-red-bright);
+    border-right-color: var(--accent-red-bright);
 }
 
 

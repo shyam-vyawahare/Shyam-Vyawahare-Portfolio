@@ -26,6 +26,20 @@
             color: var(--resume-text);
         }
 
+        body:not(.dark-mode) {
+            --resume-bg: #f7f4f4;
+            --resume-bg-soft: #fff2f2;
+            --resume-panel: rgba(255, 255, 255, 0.96);
+            --resume-border: rgba(139, 0, 0, 0.12);
+            --resume-text: #1b1b1b;
+            --resume-muted: #4d4d4d;
+            --resume-accent: #8b0000;
+            --resume-accent-soft: #c91b1b;
+            --resume-tag-bg: rgba(179, 0, 0, 0.05);
+            background: radial-gradient(circle at top left, rgba(179, 0, 0, 0.08), transparent 25%), var(--resume-bg);
+            color: var(--resume-text);
+        }
+
         .resume-hero {
             background: linear-gradient(135deg, #120d0d 0%, #1b0d0d 35%, #230d0d 100%);
             border-bottom: 1px solid var(--resume-border);
@@ -33,6 +47,11 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+        }
+
+        body:not(.dark-mode) .resume-hero {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.06) 0%, rgba(179, 0, 0, 0.12) 35%, rgba(255, 255, 255, 0.96) 100%);
+            border-bottom: 1px solid rgba(139, 0, 0, 0.12);
         }
 
         .resume-hero::before {
@@ -54,12 +73,20 @@
             z-index: 1;
         }
 
+        body:not(.dark-mode) .resume-hero h1 {
+            color: #1b1b1b;
+        }
+
         .resume-hero .subtext {
             font-size: 1.1rem;
             color: var(--resume-muted);
             margin-bottom: 2rem;
             position: relative;
             z-index: 1;
+        }
+
+        body:not(.dark-mode) .resume-hero .subtext {
+            color: #4d4d4d;
         }
 
         .resume-buttons {
@@ -89,6 +116,11 @@
             margin-bottom: 1.5rem;
         }
 
+        body:not(.dark-mode) .resume-section h2 {
+            color: #1b1b1b;
+            border-bottom-color: rgba(139, 0, 0, 0.25);
+        }
+
         .contact-chips {
             display: flex;
             flex-wrap: wrap;
@@ -116,10 +148,29 @@
             box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
         }
 
+        body:not(.dark-mode) .experience-card,
+        body:not(.dark-mode) .project-card-resume,
+        body:not(.dark-mode) .skill-group,
+        body:not(.dark-mode) .award-highlight,
+        body:not(.dark-mode) .contact-chip {
+            background: rgba(255, 255, 255, 0.96);
+            border-color: rgba(139, 0, 0, 0.12);
+            color: #1b1b1b;
+            box-shadow: 0 10px 22px rgba(20, 20, 20, 0.05);
+        }
+
         .experience-card h3 {
             font-size: 1.3rem;
             color: #ffb3b3;
             margin: 0 0 0.25rem 0;
+        }
+
+        body:not(.dark-mode) .experience-card h3,
+        body:not(.dark-mode) .project-card-resume h3,
+        body:not(.dark-mode) .skill-group h3,
+        body:not(.dark-mode) .award-highlight h3,
+        body:not(.dark-mode) .resume-section h2 {
+            color: #8b0000;
         }
 
         .experience-meta {

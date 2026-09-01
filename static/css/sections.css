@@ -130,6 +130,18 @@
     color: var(--dark-color);
 }
 
+body:not(.dark-mode) .section:nth-child(even) {
+    background: rgba(255, 255, 255, 0.72);
+}
+
+body:not(.dark-mode) .section h2 {
+    color: #171717;
+}
+
+body:not(.dark-mode) .about-section {
+    background: transparent;
+}
+
 /* ====================
 About Section Layout 
 =======================*/
@@ -237,17 +249,39 @@ About Section Layout
 
 /* --- LIGHT MODE SPECIFIC STYLING --- */
 body:not(.dark-mode) .about-card {
-    background: #ffffff;
-    border-color: #e2e8f0;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(139, 0, 0, 0.14);
+    box-shadow: 0 10px 25px rgba(34, 17, 17, 0.06);
+    color: #1b1b1b;
 }
 
-body:not(.dark-mode) .prof-card i { color: #2563eb; }
-body:not(.dark-mode) .creative-card i { color: #7c3aed; }
+body:not(.dark-mode) .about-card h3,
+body:not(.dark-mode) .about-card p,
+body:not(.dark-mode) .identity-name,
+body:not(.dark-mode) .identity-title {
+    color: #1b1b1b;
+}
+
+body:not(.dark-mode) .about-card p {
+    opacity: 0.9;
+}
+
+body:not(.dark-mode) .prof-card i,
+body:not(.dark-mode) .creative-card i {
+    color: #8b0000;
+}
 
 body:not(.dark-mode) .about-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(6, 4, 8, 0.534);
+    border-color: rgba(139, 0, 0, 0.22);
+    box-shadow: 0 18px 35px rgba(139, 0, 0, 0.12);
+}
+
+body:not(.dark-mode) .identity-title {
+    background: linear-gradient(90deg, #8b0000, #c91b1b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Mobile Responsive Adjustments */
@@ -479,24 +513,20 @@ body:not(.dark-mode) .about-card:hover {
 body:not(.dark-mode) #projects {
     background: linear-gradient(
         135deg,
-        #120d0d 0%,
-        #1a0d0d 35%,
-        #230d0d 100%
+        #fffefc 0%,
+        #f9f2f2 35%,
+        #f5ecec 70%,
+        #f7f6f6 100%
     );
+    border-top: 1px solid rgba(139, 0, 0, 0.14);
+    border-bottom: 1px solid rgba(139, 0, 0, 0.14);
 }
 
 body:not(.dark-mode) #projects .project-card {
-    background: linear-gradient(
-        145deg,
-        rgba(25, 19, 19, 0.96),
-        rgba(12, 12, 12, 0.96)
-    );
-
-    border: 1px solid rgba(179, 0, 0, 0.18);
-
-    box-shadow:
-        0 10px 25px rgba(179, 0, 0, 0.08),
-        0 18px 40px rgba(0, 0, 0, 0.06);
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(139, 0, 0, 0.12);
+    box-shadow: 0 10px 22px rgba(17, 17, 17, 0.06), 0 0 0 1px rgba(139, 0, 0, 0.04);
+    color: #1b1b1b;
 }
 
 body:not(.dark-mode) #projects .project-card::before {
@@ -509,31 +539,32 @@ body:not(.dark-mode) #projects .project-card::before {
 }
 
 body:not(.dark-mode) #projects .project-card:hover {
-    border-color: rgba(255, 77, 77, 0.35);
-
-    box-shadow:
-        0 15px 35px rgba(179, 0, 0, 0.15),
-        0 20px 45px rgba(0, 0, 0, 0.10);
+    border-color: rgba(139, 0, 0, 0.2);
+    box-shadow: 0 15px 35px rgba(139, 0, 0, 0.12), 0 0 22px rgba(179, 0, 0, 0.08);
 }
 
-body:not(.dark-mode) #projects .project-card h3 {
-    color: #f8eaea;
+body:not(.dark-mode) #projects .project-card h3,
+body:not(.dark-mode) #projects .project-card p,
+body:not(.dark-mode) #projects .project-card h5 {
+    color: #1b1b1b;
 }
 
 body:not(.dark-mode) #projects .project-card p {
-    color: #e3d8d8;
+    opacity: 0.85;
 }
 
 body:not(.dark-mode) #projects .tech-stack {
-    color: #ffb0b0;
+    background: rgba(179, 0, 0, 0.05);
+    color: #8b0000;
+    border: 1px solid rgba(139, 0, 0, 0.1);
 }
 
 body:not(.dark-mode) #projects .project-card h5 {
-    color: #f9e6e6;
+    opacity: 0.9;
 }
 
 body:not(.dark-mode) #projects .project-card:hover h5 {
-    color: #ffb0b0;
+    color: #8b0000;
 }
 
 /* =========================
@@ -544,6 +575,45 @@ body:not(.dark-mode) #projects .project-card:hover h5 {
     padding: 5rem 0;
     position: relative;
     background: linear-gradient(180deg, rgba(17, 15, 15, 0.9), rgba(23, 14, 14, 0.88));
+}
+
+body:not(.dark-mode) #skills {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(249, 243, 243, 0.96));
+}
+
+body:not(.dark-mode) #skills h2,
+body:not(.dark-mode) #skills .section-subtitle,
+body:not(.dark-mode) .skill-category h3,
+body:not(.dark-mode) .skill-pill {
+    color: #1b1b1b;
+}
+
+body:not(.dark-mode) #skills .section-subtitle {
+    opacity: 0.8;
+}
+
+body:not(.dark-mode) .skill-category {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(139, 0, 0, 0.12);
+    box-shadow: 0 12px 28px rgba(17, 17, 17, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+body:not(.dark-mode) .skill-category:hover {
+    border-color: rgba(139, 0, 0, 0.2);
+    box-shadow: 0 18px 36px rgba(139, 0, 0, 0.08), 0 0 18px rgba(179, 0, 0, 0.08);
+}
+
+body:not(.dark-mode) .skill-pill {
+    background: rgba(179, 0, 0, 0.05);
+    color: #2e2e2e;
+    border: 1px solid rgba(139, 0, 0, 0.12);
+    box-shadow: 0 6px 14px rgba(17, 17, 17, 0.04);
+}
+
+body:not(.dark-mode) .skill-pill:hover {
+    background: linear-gradient(135deg, var(--accent-red), var(--accent-red-soft));
+    color: #fff;
+    box-shadow: 0 12px 28px rgba(139, 0, 0, 0.18), 0 0 16px rgba(139, 0, 0, 0.1);
 }
 
 #skills h2 {
@@ -679,6 +749,58 @@ body:not(.dark-mode) #projects .project-card:hover h5 {
     position: relative;
     overflow: hidden;
     border-top: 1px solid rgba(179, 0, 0, 0.2);
+}
+
+body:not(.dark-mode) #contact {
+    background: linear-gradient(135deg, #ffffff 0%, #faf4f4 30%, #f6ecec 100%);
+    border-top: 1px solid rgba(139, 0, 0, 0.12);
+    color: #1b1b1b;
+}
+
+body:not(.dark-mode) #contact h2,
+body:not(.dark-mode) .contact-info-section h3,
+body:not(.dark-mode) .contact-form-section h3,
+body:not(.dark-mode) .form-group label,
+body:not(.dark-mode) .form-control,
+body:not(.dark-mode) .contact-item {
+    color: #1b1b1b;
+}
+
+body:not(.dark-mode) .contact-item {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(139, 0, 0, 0.12);
+    color: #1b1b1b;
+    box-shadow: 0 10px 20px rgba(20, 20, 20, 0.04);
+}
+
+body:not(.dark-mode) .contact-item:hover {
+    background: rgba(255, 247, 247, 0.98);
+    transform: translateY(-3px);
+    box-shadow: 0 0 18px rgba(179, 0, 0, 0.09), 0 12px 24px rgba(139, 0, 0, 0.08);
+}
+
+body:not(.dark-mode) .contact-icon {
+    color: #8b0000;
+}
+
+body:not(.dark-mode) .contact-form {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(139, 0, 0, 0.1);
+    box-shadow: 0 12px 26px rgba(19, 19, 19, 0.06);
+}
+
+body:not(.dark-mode) .form-control {
+    background: #ffffff;
+    border-color: rgba(139, 0, 0, 0.18);
+    color: #1b1b1b;
+}
+
+body:not(.dark-mode) .form-control::placeholder {
+    color: #555555;
+}
+
+body:not(.dark-mode) .submit-btn {
+    box-shadow: 0 10px 22px rgba(139, 0, 0, 0.12);
 }
 
 
@@ -1596,8 +1718,13 @@ footer::before {
 
 .project-hero {
     height: 70vh;
-    background: linear-gradient(135deg, #f0f7ff 0%, #d0e3ff 100%);
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.12) 0%, rgba(179, 0, 0, 0.22) 35%, rgba(255, 255, 255, 0.97) 100%);
     text-align: center;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.18);
+}
+
+body:not(.dark-mode) .project-hero {
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.10) 0%, rgba(179, 0, 0, 0.16) 35%, rgba(255, 255, 255, 0.98) 100%);
 }
 
 .dark-mode .project-hero {

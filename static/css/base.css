@@ -119,14 +119,35 @@ body {
 }
 
 body:not(.dark-mode) {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f4f4f4;
+    --bg-tertiary: #f9f5f5;
+    --surface: rgba(255, 255, 255, 0.96);
+    --surface-strong: rgba(255, 255, 255, 0.98);
+    --primary-color: #8b0000;
+    --dark-color: #1a1a1a;
+    --light-color: #f5f5f5;
+    --accent-color: #8b0000;
+    --accent-red: #8b0000;
+    --accent-red-soft: #c91b1b;
+    --accent-red-bright: #b30000;
+    --glow-red: rgba(139, 0, 0, 0.14);
+    --glow-red-strong: rgba(179, 0, 0, 0.12);
+    --border-red: rgba(139, 0, 0, 0.18);
+    --text-color: #1b1b1b;
+    --text-primary: #1b1b1b;
+    --text-light: #2b2b2b;
+    --text-muted: #4a4a4a;
+    --shadow: 0 12px 28px rgba(17, 17, 17, 0.08);
+    --shadow-red: 0 10px 25px rgba(179, 0, 0, 0.12), 0 0 0 1px rgba(179, 0, 0, 0.08);
+    --bg-main: #f5f5f5;
+    --text-main: #1b1b1b;
+    --nav-bg: rgba(255, 255, 255, 0.84);
     background:
-        radial-gradient(circle at top left, rgba(179, 0, 0, 0.12), transparent 25%),
-        radial-gradient(circle at right center, rgba(179, 0, 0, 0.1), transparent 28%),
+        radial-gradient(circle at top left, rgba(179, 0, 0, 0.10), transparent 22%),
+        radial-gradient(circle at right center, rgba(179, 0, 0, 0.08), transparent 28%),
         var(--bg-main);
     color: var(--text-main);
-    --bg-main: #0d0d0d;
-    --text-main: #f5f1f1;
-    --nav-bg: rgba(13, 13, 13, 0.8);
 }
 
 img {
