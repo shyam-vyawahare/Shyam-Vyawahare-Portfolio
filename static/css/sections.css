@@ -522,6 +522,10 @@ body:not(.dark-mode) #projects {
     border-bottom: 1px solid rgba(139, 0, 0, 0.14);
 }
 
+body:not(.dark-mode) #projects h2 {
+    color: #1b1b1b;
+}
+
 body:not(.dark-mode) #projects .project-card {
     background: rgba(255, 255, 255, 0.92);
     border: 1px solid rgba(139, 0, 0, 0.12);
