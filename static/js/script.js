@@ -450,6 +450,10 @@ document.addEventListener('DOMContentLoaded', function() {
 // Hero ring animation and interaction
 function initHeroRing() {
     const hero = document.querySelector('.hero');
+    
+    // Only initialize ring if hero element exists (not on resume page)
+    if (!hero) return;
+    
     const ring = document.createElement('div');
     ring.className = 'hero-ring';
 
