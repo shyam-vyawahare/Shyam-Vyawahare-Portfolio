@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // =============================================
     //              HERO TITLE DISPLAY 
     // =============================================
@@ -12,46 +14,58 @@ document.addEventListener('DOMContentLoaded', function() {
             document.documentElement.classList.add('fonts-loaded');
         });
     } else {
-        // Fallback for browsers that don't support document.fonts
         setTimeout(() => {
             document.documentElement.classList.add('fonts-loaded');
         }, 600);
     }
 
     // =============================================
-    // Optimized Scroll Animations with Intersection Observer
+    // Smooth reveal animation for sections and content
     // =============================================
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('slide-in');
-                // Stop observing after animation triggers
-                sectionObserver.unobserve(entry.target);
-            }
+    const revealTargets = document.querySelectorAll('.section, .about-section, .projects-page, .resume-hero, .resume-section');
+
+    if (reducedMotion) {
+        revealTargets.forEach(target => {
+            target.classList.add('slide-in');
+            target.classList.add('is-visible');
         });
-    }, { threshold: 0.1 });
 
-    // Observe all sections for scroll animations
-    document.querySelectorAll('.section').forEach(section => {
-        sectionObserver.observe(section);
-    });
-
-    // =============================================
-    // Element Animation on Scroll (for elements within sections)
-    // =============================================
-    const elementObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-                // Removed focus-animation (pulse effect) - keeping only animated class
-            }
+        document.querySelectorAll('.section > .container > *, .about-card, .about-item, .skill-category, .project-card, .experience-card, .project-card-resume, .skill-group, .contact-info, .contact-form, .contact-item').forEach(element => {
+            element.classList.add('animated');
         });
-    }, { threshold: 0.15 });
+    } else {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-in');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: [0.08, 0.22],
+            rootMargin: '0px 0px -12% 0px'
+        });
 
-    // Observe elements within sections
-    document.querySelectorAll('.section > .container > *').forEach(element => {
-        elementObserver.observe(element);
-    });
+        revealTargets.forEach(target => {
+            revealObserver.observe(target);
+        });
+
+        const elementObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    elementObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.14,
+            rootMargin: '0px 0px -10% 0px'
+        });
+
+        document.querySelectorAll('.section > .container > *, .about-card, .about-item, .skill-category, .project-card, .experience-card, .project-card-resume, .skill-group, .contact-info, .contact-form, .contact-item').forEach(element => {
+            elementObserver.observe(element);
+        });
+    }
 
     // Close mobile menu on various interactions 
     // Function to handle the menu closing
@@ -235,14 +249,41 @@ document.addEventListener('DOMContentLoaded', function() {
     // Loading Screen Logic
     // =============================================
     const loadingScreen = document.getElementById('loading-screen');
-    if (loadingScreen) {
-        // Ensure dark mode is applied before removing loader
-        // The applyTheme call above handles the dark mode
+    if (!loadingScreen) {
+        const loader = document.createElement('div');
+        loader.id = 'loading-screen';
+        loader.setAttribute('role', 'status');
+        loader.setAttribute('aria-live', 'polite');
+        loader.innerHTML = `
+            <div class="loader-content">
+                <span class="loader-ring" aria-hidden="true"></span>
+                <img class="loader-logo" src="/static/images/SVfavicon.png" alt="" loading="eager">
+            </div>
+        `;
+        document.body.appendChild(loader);
+    }
 
-        // Small delay to ensure smooth transition and prevent flash
-        setTimeout(() => {
+    const effectiveLoader = document.getElementById('loading-screen');
+    if (effectiveLoader) {
+        let loaderRevealed = false;
+        const revealLoader = () => {
+            if (loaderRevealed) return;
+            loaderRevealed = true;
             document.body.classList.add('loaded');
-        }, 500);
+            window.setTimeout(() => {
+                if (effectiveLoader && effectiveLoader.parentNode) {
+                    effectiveLoader.remove();
+                }
+            }, 260);
+        };
+
+        if (reducedMotion) {
+            revealLoader();
+            return;
+        }
+
+        window.addEventListener('load', revealLoader, { once: true });
+        window.setTimeout(revealLoader, 450);
     }
 });
 

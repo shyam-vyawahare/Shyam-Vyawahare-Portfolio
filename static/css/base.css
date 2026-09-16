@@ -32,55 +32,57 @@
 
 #loading-screen {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--bg-primary);
-    z-index: 9999;
+    inset: 0;
     display: flex;
-    justify-content: center;
     align-items: center;
-    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    justify-content: center;
+    background: rgba(13, 13, 13, 0.96);
+    z-index: 9999;
+    transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+
+body:not(.dark-mode) #loading-screen {
+    background: rgba(245, 245, 245, 0.98);
 }
 
 .loader-content {
     position: relative;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 96px;
+    height: 96px;
+    display: grid;
+    place-items: center;
+    transform: scale(0.92);
+    opacity: 0.96;
+    transition: transform 0.45s ease, opacity 0.45s ease;
 }
 
 .loader-logo {
-    width: 60px;
-    height: 60px;
-    z-index: 2;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
     object-fit: contain;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 25px rgba(179, 0, 0, 0.28);
 }
 
 .loader-ring {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #61abc0;
-    /* Cyan */
-    border-right-color: #c170f7;
-    /* Purple */
+    border: 2px solid transparent;
+    border-top-color: rgba(179, 0, 0, 0.9);
+    border-right-color: rgba(255, 130, 130, 0.8);
     animation: spin 1s linear infinite;
-    box-shadow: 0 0 15px rgba(97, 171, 192, 0.5), 0 0 15px rgba(193, 112, 247, 0.5);
+    box-shadow: 0 0 18px rgba(179, 0, 0, 0.18);
 }
 
 @keyframes spin {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(0deg) scale(1);
     }
     100% {
-        transform: rotate(360deg);
+        transform: rotate(360deg) scale(1);
     }
 }
 
@@ -88,6 +90,11 @@ body.loaded #loading-screen {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+}
+
+body.loaded #loading-screen .loader-content {
+    transform: scale(1.08);
+    opacity: 0;
 }
 
 
