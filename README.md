@@ -7,6 +7,8 @@ A modern, responsive portfolio website built with HTML, CSS, and JavaScript, fea
 View Live Portfolio here
 [shyam-vyawahare.vercel.app](https://shyam-vyawahare.vercel.app)
 
+## Last updated on 28th of September 2026
+
 ✨ Features
 
 - Responsive Design - Fully responsive across all devices
